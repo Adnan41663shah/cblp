@@ -43,6 +43,13 @@ export const testimonialsContent = {
       videoUrl: 'https://youtube.com/shorts/N0ig6w-QG_k?feature=share',
       videoId: 'N0ig6w-QG_k',
     },
+    {
+      id: 'testimonial-4',
+      name: 'Rakesh Rakunde',
+      company: 'Senior Data Engineer',
+      videoUrl: 'https://youtube.com/shorts/w_AM163V4lM?feature=share',
+      videoId: 'w_AM163V4lM',
+    },
   ],
 }
 

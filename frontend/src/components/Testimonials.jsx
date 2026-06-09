@@ -32,7 +32,7 @@ function TestimonialCard({ testimonial, onPlay }) {
     <button
       type="button"
       onClick={() => onPlay(testimonial)}
-      className="testimonial-card group relative w-full overflow-hidden rounded-[18px] sm:rounded-[20px] border border-white/[0.1] aspect-[6/5] sm:aspect-[5/4] lg:aspect-[9/7] min-h-[220px] sm:min-h-[260px] lg:min-h-[300px] text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+      className="testimonial-card group relative w-full overflow-hidden rounded-[18px] sm:rounded-[20px] border border-white/[0.1] aspect-[6/5] sm:aspect-[5/4] lg:aspect-[3/4] xl:aspect-[9/14] min-h-[220px] sm:min-h-[260px] lg:min-h-0 text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
     >
       <img
         src={thumbnail}
@@ -54,8 +54,12 @@ function TestimonialCard({ testimonial, onPlay }) {
             'linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.55) 48%, transparent 100%)',
         }}
       >
-        <p className="text-white font-bold text-lg sm:text-xl leading-none">{testimonial.name}</p>
-        <p className="mt-2 text-white/90 text-sm sm:text-[15px] font-medium">{testimonial.company}</p>
+        <p className="text-white font-bold text-base sm:text-lg lg:text-[17px] xl:text-xl leading-none">
+          {testimonial.name}
+        </p>
+        <p className="mt-1.5 sm:mt-2 text-white/90 text-xs sm:text-sm lg:text-[13px] xl:text-[15px] font-medium">
+          {testimonial.company}
+        </p>
       </div>
     </button>
   )
@@ -192,7 +196,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="relative scroll-mt-[var(--nav-scroll-offset)] bg-black pt-10 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {items.map((testimonial) => (
           <TestimonialCard
             key={testimonial.id}

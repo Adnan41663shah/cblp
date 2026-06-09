@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar'
 import HeroSection from '../components/HeroSection'
 import SectionsWrapper from '../components/SectionsWrapper'
 import { courses } from '../data/courses'
+import { useCourseDocument } from '../hooks/useCourseDocument'
 
 function useScrollToHash() {
   const { pathname, hash } = useLocation()
@@ -25,6 +26,7 @@ function useScrollToHash() {
 export default function LandingPage({ courseKey }) {
   const course = courses[courseKey]
   useScrollToHash()
+  useCourseDocument(courseKey)
 
   if (!course) return null
 

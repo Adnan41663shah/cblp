@@ -44,9 +44,9 @@ export const bootcampExpertsContent = {
     'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=960&h=720&q=80',
   imageAlt: 'In-house expert team collaborating in office',
   highlights: [
-    'Get a personal relationship manager',
-    'Connect 1:1 with FAANG mentors',
-    "Over 1000+ TA's to clear your doubts & more",
+    'One-on-one guidance from industry experts and mentors.',
+    'Regular knowledge assessments and technical discussions.',
+    "Lifetime career support and skill development assistance.",
   ],
 }
 

@@ -22,6 +22,7 @@ export const courses = {
   'data-science': {
     slug: 'data-science',
     title: 'Data Science & AI Program by Cloudblitz',
+    pageTitle: 'Data Science & AI | Cloudblitz',
     heading: 'Become an Industry‑Ready Data Scientist & AI Expert.',
     bullets: [
       'Designed for professionals to stand out in data science & AI job market',
@@ -75,6 +76,7 @@ export const courses = {
   devops: {
     slug: 'devops',
     title: 'Cloud DevOps Program by Cloudblitz',
+    pageTitle: 'Cloud DevOps | Cloudblitz',
     heading: 'Become a Production‑Ready Cloud DevOps Engineer.',
     bullets: [
       'Built for professionals ready to deploy, scale, and automate in the cloud',
