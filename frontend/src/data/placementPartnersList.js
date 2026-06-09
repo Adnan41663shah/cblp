@@ -1,0 +1,152 @@
+import larsenToubroLogo from '../../public/partners/LarsenToubro.jpg'
+
+export const PLACEMENT_PARTNERS = [
+  {
+    id: 'tcs',
+    displayName: 'TCS',
+    logoAlt: 'TCS Logo',
+    icon: 'SiTcs',
+    color: '#E31837',
+    domain: 'tcs.com',
+  },
+  {
+    id: 'infosys',
+    displayName: 'Infosys',
+    logoAlt: 'Infosys Logo',
+    icon: 'SiInfosys',
+    color: '#007CC3',
+    domain: 'infosys.com',
+  },
+  {
+    id: 'wipro',
+    displayName: 'Wipro',
+    logoAlt: 'Wipro Logo',
+    icon: 'SiWipro',
+    color: '#341C53',
+    domain: 'wipro.com',
+  },
+  {
+    id: 'hcl',
+    displayName: 'HCLTech',
+    logoAlt: 'HCL Technologies Logo',
+    icon: 'SiHcl',
+    color: '#0B5FFF',
+    domain: 'hcltech.com',
+  },
+  {
+    id: 'tech-mahindra',
+    displayName: 'Tech Mahindra',
+    logoAlt: 'Tech Mahindra Logo',
+    domain: 'techmahindra.com',
+  },
+  {
+    id: 'cognizant',
+    displayName: 'Cognizant',
+    logoAlt: 'Cognizant Logo',
+    icon: 'SiCognizant',
+    color: '#1A4CA1',
+    domain: 'cognizant.com',
+  },
+  {
+    id: 'accenture',
+    displayName: 'Accenture',
+    logoAlt: 'Accenture Logo',
+    icon: 'SiAccenture',
+    color: '#A100FF',
+    domain: 'accenture.com',
+  },
+  {
+    id: 'capgemini',
+    displayName: 'Capgemini',
+    logoAlt: 'Capgemini Logo',
+    domain: 'capgemini.com',
+  },
+  {
+    id: 'mindtree',
+    displayName: 'Mindtree',
+    logoAlt: 'Mindtree Logo',
+    logoSrc: '/partners/mindtree.png',
+    domain: 'mindtree.com',
+  },
+  {
+    id: 'larsen-toubro',
+    displayName: 'L&T',
+    logoAlt: 'L&T Logo',
+    logoSrc: larsenToubroLogo,
+  },
+  {
+    id: 'amazon',
+    displayName: 'Amazon',
+    logoAlt: 'Amazon Logo',
+    icon: 'FaAmazon',
+    color: '#FF9900',
+    domain: 'amazon.com',
+  },
+  {
+    id: 'microsoft',
+    displayName: 'Microsoft',
+    logoAlt: 'Microsoft Logo',
+    icon: 'FaMicrosoft',
+    color: '#00A4EF',
+    domain: 'microsoft.com',
+  },
+  {
+    id: 'google',
+    displayName: 'Google',
+    logoAlt: 'Google Logo',
+    logoSrc: '/partners/google.png',
+    domain: 'google.com',
+  },
+  {
+    id: 'ibm',
+    displayName: 'IBM',
+    logoAlt: 'IBM Logo',
+    logoSrc: '/partners/ibm.svg',
+    domain: 'ibm.com',
+  },
+  {
+    id: 'oracle',
+    displayName: 'Oracle',
+    logoAlt: 'Oracle Logo',
+    logoSrc: '/partners/oracle.svg',
+    domain: 'oracle.com',
+  },
+  {
+    id: 'globallogic',
+    displayName: 'GlobalLogic',
+    logoAlt: 'GlobalLogic Logo',
+    domain: 'globallogic.com',
+  },
+  {
+    id: 'kpit',
+    displayName: 'KPIT',
+    logoAlt: 'KPIT Logo',
+    logoSrc: '/partners/kpit.png',
+    domain: 'kpit.com',
+  },
+  {
+    id: 'fis',
+    displayName: 'FIS',
+    logoAlt: 'FIS Logo',
+    logoSrc: '/partners/fis.svg',
+    domain: 'fisglobal.com',
+  },
+  {
+    id: 'igt-solutions',
+    displayName: 'IGT Solutions',
+    logoAlt: 'IGT Solutions Logo',
+    domain: 'igtsolutions.com',
+  },
+  {
+    id: 'cybage',
+    displayName: 'Cybage',
+    logoAlt: 'Cybage Logo',
+    logoSrc: '/partners/Cybage.png',
+    domain: 'cybage.com',
+  },
+]
+
+const midpoint = Math.ceil(PLACEMENT_PARTNERS.length / 2)
+
+export const PLACEMENT_PARTNER_ROW_ONE = PLACEMENT_PARTNERS.slice(0, midpoint)
+export const PLACEMENT_PARTNER_ROW_TWO = PLACEMENT_PARTNERS.slice(midpoint)

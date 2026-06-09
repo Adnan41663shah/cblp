@@ -1,0 +1,19 @@
+{
+  "name": "cbz-landing-backend",
+  "version": "1.0.0",
+  "description": "Email API for CloudBlitz landing page lead forms",
+  "license": "ISC",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "libphonenumber-js": "^1.13.6",
+    "nodemailer": "^6.10.0"
+  }
+}
