@@ -1,6 +1,19 @@
 const { sendInquiryEmail } = require('../services/email.service')
 const { submitLeadToCrm } = require('../services/crm.service')
 
+function buildDeliveryResults(emailResult, crmResult) {
+  return {
+    email:
+      emailResult.status === 'fulfilled'
+        ? { ok: true, ...emailResult.value }
+        : { ok: false, message: emailResult.reason?.message },
+    crm:
+      crmResult.status === 'fulfilled'
+        ? { ok: true, ...crmResult.value }
+        : { ok: false, message: crmResult.reason?.message },
+  }
+}
+
 function buildDeliveryFailureMessage(emailResult, crmResult) {
   const parts = []
 
@@ -24,23 +37,15 @@ async function createLead(req, res, next) {
 
     const emailSucceeded = emailResult.status === 'fulfilled'
     const crmSucceeded = crmResult.status === 'fulfilled'
+    const deliveryResults = buildDeliveryResults(emailResult, crmResult)
 
-    if (!emailSucceeded || !crmSucceeded) {
+    if (!emailSucceeded && !crmSucceeded) {
       const error = new Error(
         buildDeliveryFailureMessage(emailResult, crmResult) ||
           'Failed to deliver inquiry. Please try again shortly.'
       )
       error.statusCode = 500
-      error.deliveryResults = {
-        email:
-          emailResult.status === 'fulfilled'
-            ? { ok: true, ...emailResult.value }
-            : { ok: false, message: emailResult.reason?.message },
-        crm:
-          crmResult.status === 'fulfilled'
-            ? { ok: true, ...crmResult.value }
-            : { ok: false, message: crmResult.reason?.message },
-      }
+      error.deliveryResults = deliveryResults
       return next(error)
     }
 
@@ -48,11 +53,11 @@ async function createLead(req, res, next) {
       ok: true,
       message: 'Inquiry submitted successfully',
       delivered: {
-        email: true,
-        crm: true,
+        email: emailSucceeded,
+        crm: crmSucceeded,
       },
-      crmFormType: crmResult.value.formType,
-      messageId: emailResult.value.messageId,
+      ...(crmSucceeded && { crmFormType: crmResult.value.formType }),
+      ...(emailSucceeded && { messageId: emailResult.value.messageId }),
     })
   } catch (error) {
     error.statusCode = error.statusCode || 500

@@ -3,8 +3,8 @@ import { iitAdvantagesContent } from '../data/iitAdvantages'
 import CurriculumDownloadButtons from './CurriculumDownloadButtons'
 import GlowBullet from './GlowBullet'
 
-const SLIDE_INTERVAL_MS = 5000
-const SLIDE_DURATION_MS = 900
+const SLIDE_INTERVAL_MS = 3000
+const SLIDE_DURATION_MS = 1000
 
 function subscribeToReducedMotion(onStoreChange) {
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -33,29 +33,39 @@ function getSlideOffset(imageIndex, activeIndex, direction) {
 }
 
 function CertificateCarousel({ images }) {
+  const carouselImages = images.length === 1
+    ? [images[0], { ...images[0], isDuplicate: true }]
+    : images
+
   const [activeIndex, setActiveIndex] = useState(0)
   const [direction, setDirection] = useState(1)
   const reduceMotion = usePrefersReducedMotion()
 
   useEffect(() => {
-    if (reduceMotion || images.length < 2) return undefined
+    if (reduceMotion || carouselImages.length < 2) return undefined
 
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setActiveIndex((prev) => {
-        const next = prev === 0 ? 1 : 0
+        const next = (prev + 1) % carouselImages.length
         setDirection(next > prev ? 1 : -1)
         return next
       })
     }, SLIDE_INTERVAL_MS)
 
-    return () => clearInterval(timer)
-  }, [images.length, reduceMotion])
+    return () => clearTimeout(timer)
+  }, [activeIndex, carouselImages.length, reduceMotion])
+
+  const handleDotClick = (index) => {
+    if (index === activeIndex) return
+    setDirection(index > activeIndex ? 1 : -1)
+    setActiveIndex(index)
+  }
 
   return (
     <div className="relative w-full h-full overflow-hidden rounded-[12px] sm:rounded-[14px] min-h-[206px] sm:min-h-[244px] lg:min-h-[268px]">
-      {images.map((image, index) => (
+      {carouselImages.map((image, index) => (
         <img
-          key={image.src}
+          key={`${image.src}-${index}`}
           src={image.src}
           alt={image.alt}
           className="absolute inset-0 w-full h-full object-contain bg-black"
@@ -68,6 +78,20 @@ function CertificateCarousel({ images }) {
           loading="lazy"
         />
       ))}
+
+      {/* Slide indicators / dot buttons */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+        {carouselImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleDotClick(index)}
+            className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+              activeIndex === index ? 'w-7 bg-white' : 'w-7 bg-white/20 hover:bg-white/40'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
 
       <div
         className="absolute inset-x-0 bottom-0 h-[64px] sm:h-[72px] pointer-events-none"
@@ -90,7 +114,7 @@ function HighlightList({ items }) {
             <div className="scale-[0.82] sm:scale-[0.88] origin-left flex-shrink-0">
               <GlowBullet />
             </div>
-            <p className="text-white/90 font-medium text-sm sm:text-[14px] leading-snug">
+            <p className="text-white/90 text-sm sm:text-[14px] leading-snug">
               {item}
             </p>
           </div>

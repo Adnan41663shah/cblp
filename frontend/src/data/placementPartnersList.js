@@ -1,5 +1,3 @@
-import larsenToubroLogo from '../../public/partners/LarsenToubro.jpg'
-
 export const PLACEMENT_PARTNERS = [
   {
     id: 'tcs',
@@ -65,14 +63,14 @@ export const PLACEMENT_PARTNERS = [
     id: 'mindtree',
     displayName: 'Mindtree',
     logoAlt: 'Mindtree Logo',
-    logoSrc: '/partners/mindtree.png',
+    logoSrc: '/partners/mindtree.webp',
     domain: 'mindtree.com',
   },
   {
     id: 'larsen-toubro',
     displayName: 'L&T',
     logoAlt: 'L&T Logo',
-    logoSrc: larsenToubroLogo,
+    logoSrc: '/partners/LarsenToubro.webp',
   },
   {
     id: 'amazon',
@@ -94,7 +92,7 @@ export const PLACEMENT_PARTNERS = [
     id: 'google',
     displayName: 'Google',
     logoAlt: 'Google Logo',
-    logoSrc: '/partners/google.png',
+    logoSrc: '/partners/google.webp',
     domain: 'google.com',
   },
   {
@@ -121,7 +119,7 @@ export const PLACEMENT_PARTNERS = [
     id: 'kpit',
     displayName: 'KPIT',
     logoAlt: 'KPIT Logo',
-    logoSrc: '/partners/kpit.png',
+    logoSrc: '/partners/kpit.webp',
     domain: 'kpit.com',
   },
   {
@@ -141,7 +139,7 @@ export const PLACEMENT_PARTNERS = [
     id: 'cybage',
     displayName: 'Cybage',
     logoAlt: 'Cybage Logo',
-    logoSrc: '/partners/Cybage.png',
+    logoSrc: '/partners/Cybage.webp',
     domain: 'cybage.com',
   },
 ]

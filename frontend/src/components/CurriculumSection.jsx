@@ -1,8 +1,24 @@
-import { TbSparkles } from 'react-icons/tb'
+import { useState } from 'react'
+import { TbChevronRight, TbSparkles } from 'react-icons/tb'
 import { curriculumSectionContent } from '../data/curriculumSection'
 import CurriculumDownloadButtons from './CurriculumDownloadButtons'
+import CurriculumDownloadModal from './CurriculumDownloadModal'
 
-function SyllabusCard({ label, weeks }) {
+const readMoreThemes = {
+  'data-science': {
+    button:
+      'text-[#60a5fa] hover:text-[#93c5fd] focus-visible:ring-[#2563eb]/40',
+    icon: 'text-[#60a5fa] group-hover:text-[#93c5fd]',
+  },
+  devops: {
+    button:
+      'text-[#fb923c] hover:text-[#fdba74] focus-visible:ring-[#ff6b35]/40',
+    icon: 'text-[#fb923c] group-hover:text-[#fdba74]',
+  },
+}
+
+function SyllabusCard({ label, weeks, courseKey, onReadMore }) {
+  const theme = readMoreThemes[courseKey] ?? readMoreThemes['data-science']
   const rows = weeks.flatMap((item) => [
     { type: 'week', text: item.week },
     ...item.topics.map((topic) => ({ type: 'topic', text: topic })),
@@ -29,6 +45,20 @@ function SyllabusCard({ label, weeks }) {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="border-t border-white/[0.08] px-5 sm:px-6 lg:px-7 py-3.5 sm:py-4">
+        <button
+          type="button"
+          onClick={onReadMore}
+          className={`group inline-flex w-full items-center justify-center gap-1.5 text-[13px] sm:text-sm font-semibold transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${theme.button}`}
+        >
+          Read More
+          <TbChevronRight
+            className={`h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 ${theme.icon}`}
+            aria-hidden="true"
+          />
+        </button>
       </div>
     </div>
   )
@@ -97,6 +127,7 @@ function PartnerLogos({ partners }) {
 
 export default function CurriculumSection({ courseKey = 'data-science' }) {
   const content = curriculumSectionContent[courseKey] ?? curriculumSectionContent['data-science']
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false)
 
   return (
     <section id="syllabus" className="relative z-10 -mt-6 sm:-mt-10 lg:-mt-14 pb-12 sm:pb-16 lg:pb-20 bg-black scroll-mt-24">
@@ -107,7 +138,12 @@ export default function CurriculumSection({ courseKey = 'data-science' }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 items-stretch">
           <FeatureImageCard featureCard={content.featureCard} />
-          <SyllabusCard label={content.syllabusLabel} weeks={content.weeks} />
+          <SyllabusCard
+            label={content.syllabusLabel}
+            weeks={content.weeks}
+            courseKey={courseKey}
+            onReadMore={() => setIsDownloadModalOpen(true)}
+          />
         </div>
 
         <p className="text-white/90 text-[12px] sm:text-[13px] text-center mt-10 sm:mt-12 lg:mt-14 leading-relaxed">
@@ -120,6 +156,13 @@ export default function CurriculumSection({ courseKey = 'data-science' }) {
 
         <CurriculumDownloadButtons className="mt-8 sm:mt-10 lg:mt-12" />
       </div>
+
+      {isDownloadModalOpen && (
+        <CurriculumDownloadModal
+          courseKey={courseKey}
+          onClose={() => setIsDownloadModalOpen(false)}
+        />
+      )}
     </section>
   )
 }

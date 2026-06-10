@@ -1,4 +1,4 @@
-import devopsPlaceImage from '../assets/devops-place.png'
+import devopsPlaceImage from '../assets/devops-place.webp'
 
 const sharedContent = {
   heading: {

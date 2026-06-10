@@ -6,8 +6,8 @@ import {
   SiTensorflow,
   SiTerraform,
 } from 'react-icons/si'
-import dataScienceImage from '../assets/data-science.png'
-import devopsImage from '../assets/devops.png'
+import dataScienceImage from '../assets/data-science.webp'
+import devopsImage from '../assets/devops.webp'
 
 export const curriculumSectionContent = {
   'data-science': {

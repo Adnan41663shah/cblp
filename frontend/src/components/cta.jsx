@@ -1,4 +1,4 @@
-import boyCtaImage from '../assets/boy-cta.png'
+import boyCtaImage from '../assets/boy-cta.webp'
 import { useLeadForm } from '../hooks/useLeadForm'
 import ExperienceRadioGroup from './ExperienceRadioGroup'
 import FormStatusMessage from './FormStatusMessage'

@@ -1,13 +1,13 @@
-import certificateImage from '../assets/certificate.png'
+import certificateImage from '../assets/certificate.webp'
 
 export const iitAdvantagesContent = {
   'data-science': {
     title: 'The IIT Advantage',
-    cardHeading: 'Get Certified by IIT(BHU) Varanasi to boost learning',
+    cardHeading: 'Get a Joint Certification from IIT (BHU) Varanasi.',
     highlights: [
-      '34+ hr IIT(BHU) faculty-led recorded sessions',
-      'Joint certification from IIT(BHU) Varanasi',
-      '15+ hrs of capstone projects guided by IIT mentors',
+      'Get the opportunity to learn from experts working at MAANG and other leading global companies.',
+      'Learn from lecturers and industry professionals from IITs and MAANG companies.',
+      'Receive career guidance and mentorship to help you secure placements in top MNCs',
     ],
     carouselImages: [
       {
@@ -28,11 +28,11 @@ export const iitAdvantagesContent = {
   },
   devops: {
     title: 'The IIT Advantage',
-    cardHeading: 'Get Certified by IIT(BHU) Varanasi to boost learning',
+    cardHeading: 'Get a Joint Certification from IIT (BHU) Varanasi.',
     highlights: [
-      '40+ hr IIT(BHU) faculty-led cloud & DevOps sessions',
-      'Joint certification from IIT(BHU) Varanasi',
-      '20+ hrs of production labs guided by IIT mentors',
+      'Get the opportunity to learn from experts working at MAANG and other leading global companies.',
+      'Learn from lecturers and industry professionals from IITs and MAANG companies.',
+      'Receive career guidance and mentorship to help you secure placements in top MNCs',
     ],
     carouselImages: [
       {
