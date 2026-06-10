@@ -33,7 +33,8 @@ body {
 :root {
   --main-nav-height: 2.75rem;
   --sub-nav-height: 2.375rem;
-  --nav-scroll-offset: calc(var(--main-nav-height) + var(--sub-nav-height) + 0.375rem);
+  --nav-gap: 0.75rem;
+  --nav-scroll-offset: calc(var(--main-nav-height) + var(--sub-nav-height) + var(--nav-gap) + 0.375rem);
   --mobile-sticky-cta-height: 5.75rem;
 }
 
@@ -41,6 +42,7 @@ body {
   :root {
     --main-nav-height: 3.5rem;
     --sub-nav-height: 2.625rem;
+    --nav-gap: 1rem;
     --mobile-sticky-cta-height: 0rem;
   }
 }
@@ -52,12 +54,16 @@ body {
   }
 }
 
+.site-navbar {
+  top: var(--nav-gap);
+}
+
 .site-navbar__inner {
   height: var(--main-nav-height);
 }
 
 .subnav-sticky {
-  top: var(--main-nav-height);
+  top: calc(var(--main-nav-height) + var(--nav-gap));
 }
 
 .syllabus-card {
@@ -119,6 +125,8 @@ body {
 }
 
 .hero-section {
+  margin-top: calc(-1 * var(--main-nav-height));
+  padding-top: calc(var(--main-nav-height) + var(--nav-gap));
   background: linear-gradient(
     to right,
     #120828 0%,

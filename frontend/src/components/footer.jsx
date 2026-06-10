@@ -66,10 +66,6 @@ function CampusItem({ campus }) {
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
   return (
     <footer className="relative w-full bg-[#050505] border-t border-white/[0.08]">
       <div
@@ -113,10 +109,10 @@ export default function Footer() {
               <p>
                 <span className="text-[#9ca3af]">Email:</span>{' '}
                 <a
-                  href="mailto:support@cloudblitz.in"
+                  href="mailto:info@cloudblitz.in"
                   className="text-[#c5cdd8] hover:text-[#ff8a5c] transition-colors"
                 >
-                  support@cloudblitz.in
+                  info@cloudblitz.in
                 </a>
               </p>
               <p>
@@ -181,16 +177,7 @@ export default function Footer() {
             >
               Privacy Policy
             </a>
-            <button
-              type="button"
-              onClick={scrollToTop}
-              className="flex items-center gap-1.5 hover:text-[#ff8a5c] transition-colors font-semibold text-white/80 cursor-pointer"
-            >
-              <span>Back to Top</span>
-              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-              </svg>
-            </button>
+            
           </div>
         </div>
       </div>

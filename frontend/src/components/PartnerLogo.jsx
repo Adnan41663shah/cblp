@@ -25,6 +25,20 @@ const ICON_MAP = {
 const LOGO_CLASS =
   'h-9 sm:h-10 lg:h-11 w-auto max-w-[110px] sm:max-w-[130px] lg:max-w-[150px] object-contain object-center select-none'
 
+const IMAGE_LOGO_CLASS =
+  'h-6 sm:h-7 lg:h-8 w-auto max-w-[110px] sm:max-w-[130px] lg:max-w-[150px] object-contain object-center select-none'
+
+const LARGE_SCALE_PARTNERS = new Set([
+  'infosys',
+  'wipro',
+  'hcl',
+  'tech-mahindra',
+  'cognizant',
+  'mindtree',
+  'larsen-toubro',
+  'capgemini',
+])
+
 function domainLogoSources(domain) {
   const siteUrl = `https://${domain}`
 
@@ -34,7 +48,7 @@ function domainLogoSources(domain) {
   ]
 }
 
-function DomainLogo({ partner }) {
+function DomainLogo({ partner, scaleClass = '' }) {
   const sources = domainLogoSources(partner.domain)
   const [sourceIndex, setSourceIndex] = useState(0)
   const [failed, setFailed] = useState(false)
@@ -57,7 +71,7 @@ function DomainLogo({ partner }) {
       title={partner.displayName}
       loading="lazy"
       decoding="async"
-      className={LOGO_CLASS}
+      className={`${IMAGE_LOGO_CLASS} ${scaleClass}`}
       draggable="false"
       onError={() => {
         if (sourceIndex < sources.length - 1) {
@@ -81,7 +95,7 @@ function LocalLogoFallback({ partner }) {
   )
 }
 
-function LocalLogo({ partner }) {
+function LocalLogo({ partner, scaleClass = '' }) {
   const [failed, setFailed] = useState(false)
 
   if (failed) {
@@ -95,7 +109,7 @@ function LocalLogo({ partner }) {
       title={partner.displayName}
       loading="lazy"
       decoding="async"
-      className={LOGO_CLASS}
+      className={`${IMAGE_LOGO_CLASS} ${scaleClass}`}
       draggable="false"
       onError={() => setFailed(true)}
     />
@@ -104,11 +118,13 @@ function LocalLogo({ partner }) {
 
 export default function PartnerLogo({ partner }) {
   const Icon = partner.icon ? ICON_MAP[partner.icon] : null
+  const shouldScaleUp = LARGE_SCALE_PARTNERS.has(partner.id)
+  const scaleClass = shouldScaleUp ? 'scale-[1.6] transform' : ''
 
   if (Icon) {
     return (
       <Icon
-        className={`${LOGO_CLASS} flex-shrink-0`}
+        className={`${LOGO_CLASS} flex-shrink-0 ${scaleClass}`}
         style={{ color: partner.color ?? '#ffffff' }}
         aria-label={partner.logoAlt}
         title={partner.displayName}
@@ -117,11 +133,11 @@ export default function PartnerLogo({ partner }) {
   }
 
   if (partner.logoSrc) {
-    return <LocalLogo partner={partner} />
+    return <LocalLogo partner={partner} scaleClass={scaleClass} />
   }
 
   if (partner.domain) {
-    return <DomainLogo partner={partner} />
+    return <DomainLogo partner={partner} scaleClass={scaleClass} />
   }
 
   return (

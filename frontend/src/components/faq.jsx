@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FAQ_ITEMS } from '../data/faq'
+import { getFaqItems } from '../data/faq'
 
 function FaqItem({ item, isOpen, onToggle }) {
   return (
@@ -36,8 +36,9 @@ function FaqItem({ item, isOpen, onToggle }) {
   )
 }
 
-export default function Faq() {
+export default function Faq({ courseKey = 'data-science' }) {
   const [openId, setOpenId] = useState(null)
+  const faqItems = getFaqItems(courseKey)
 
   const handleToggle = (id) => {
     setOpenId((current) => (current === id ? null : id))
@@ -50,7 +51,7 @@ export default function Faq() {
       </h2>
 
       <div>
-        {FAQ_ITEMS.map((item) => (
+        {faqItems.map((item) => (
           <FaqItem
             key={item.id}
             item={item}

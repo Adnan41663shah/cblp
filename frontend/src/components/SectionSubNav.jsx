@@ -55,7 +55,7 @@ export default function SectionSubNav() {
     let ticking = false
 
     const updateActiveSection = () => {
-      const activationLine = getScrollOffset() + 48
+      const activationLine = getScrollOffset() + 120
       let nextActive = navItems[0].id
 
       // Walk page order bottom-up so the deepest reached section wins

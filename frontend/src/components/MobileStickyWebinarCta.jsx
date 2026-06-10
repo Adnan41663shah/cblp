@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react'
+import whatsappIcon from '../assets/whatsapp-color-svgrepo-com.svg'
 
 const MOBILE_QUERY = '(max-width: 639px)'
 const HERO_FORM_ID = 'hero-form'
-
-function scrollToHeroForm() {
-  document.getElementById(HERO_FORM_ID)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
 
 export default function MobileStickyWebinarCta() {
   const [visible, setVisible] = useState(false)
@@ -49,19 +46,24 @@ export default function MobileStickyWebinarCta() {
     }
   }, [])
 
+  const message = "Hi! I'm interested in learning more about CloudBlitz courses. Can you help me?"
+  const whatsappUrl = `https://wa.me/919834887259?text=${encodeURIComponent(message)}`
+
   return (
     <div
       className={`mobile-sticky-cta sm:hidden ${visible ? 'mobile-sticky-cta--visible' : ''}`}
       aria-hidden={!visible}
     >
-      <button
-        type="button"
-        onClick={scrollToHeroForm}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
         tabIndex={visible ? 0 : -1}
-        className="w-full bg-[#ff6b35] hover:bg-[#e85a28] text-white font-bold text-sm py-3.5 rounded-xl transition-colors duration-200 cursor-pointer"
+        className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#22c35e] active:bg-[#1fa851] text-white font-bold text-sm py-3.5 rounded-xl transition-colors duration-200 cursor-pointer shadow-lg no-underline"
       >
-        Book a webinar for FREE
-      </button>
+        <img src={whatsappIcon} alt="" className="w-5 h-5" />
+        Chat on WhatsApp
+      </a>
     </div>
   )
 }

@@ -21,7 +21,7 @@ export default function SectionsWrapper({ courseKey = 'data-science' }) {
         <ExpertSessions />
         <Testimonials />
         <Cta courseKey={courseKey} />
-        <Faq />
+        <Faq courseKey={courseKey} />
       </div>
     </section>
   )
