@@ -145,7 +145,7 @@ export default function HeroSection({ course, courseKey = 'data-science' }) {
 
             <div className="relative z-10 flex flex-col gap-6 sm:gap-7">
               {course.bullets.map((bullet) => (
-                <div key={bullet} className="flex items-start gap-3 sm:gap-4">
+                <div key={bullet} className="flex items-center gap-3 sm:gap-4">
                   <div className="mt-1.5">
                     <GlowBullet />
                   </div>

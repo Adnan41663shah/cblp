@@ -37,7 +37,7 @@ export const CAMPUS_BRANCHES = [
     name: 'Amravati',
     mapsUrl: 'https://www.google.com/maps?q=20.9203830,77.7565310',
   },
-  { name: 'Sambhaji Nagar', isSoon: true },
+  { name: 'Ch. Sambhaji Nagar', isSoon: true },
 ]
 
 export const DEVOPS_LINKS = [
