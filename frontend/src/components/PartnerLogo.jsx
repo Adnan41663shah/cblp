@@ -28,16 +28,12 @@ const LOGO_CLASS =
 const IMAGE_LOGO_CLASS =
   'h-6 sm:h-7 lg:h-8 w-auto max-w-[110px] sm:max-w-[130px] lg:max-w-[150px] object-contain object-center select-none'
 
-const LARGE_SCALE_PARTNERS = new Set([
-  'infosys',
-  'wipro',
-  'hcl',
-  'tech-mahindra',
-  'cognizant',
-  'mindtree',
-  'larsen-toubro',
-  'capgemini',
-])
+// ─── Per-logo size is now controlled via `logoScale` in placementPartnersList.js ───
+// 1.0 = normal, 1.5 = 50% bigger, 2.0 = double, etc.
+function getLogoStyle(partner) {
+  const scale = partner.logoScale ?? 1
+  return scale !== 1 ? { transform: `scale(${scale})` } : undefined
+}
 
 function domainLogoSources(domain) {
   const siteUrl = `https://${domain}`
@@ -48,7 +44,7 @@ function domainLogoSources(domain) {
   ]
 }
 
-function DomainLogo({ partner, scaleClass = '' }) {
+function DomainLogo({ partner }) {
   const sources = domainLogoSources(partner.domain)
   const [sourceIndex, setSourceIndex] = useState(0)
   const [failed, setFailed] = useState(false)
@@ -57,7 +53,6 @@ function DomainLogo({ partner, scaleClass = '' }) {
     return (
       <span
         className="text-white/90 font-semibold text-sm sm:text-base tracking-tight whitespace-nowrap"
-        title={partner.displayName}
       >
         {partner.displayName}
       </span>
@@ -68,10 +63,10 @@ function DomainLogo({ partner, scaleClass = '' }) {
     <img
       src={sources[sourceIndex]}
       alt={partner.logoAlt}
-      title={partner.displayName}
       loading="lazy"
       decoding="async"
-      className={`${IMAGE_LOGO_CLASS} ${scaleClass}`}
+      className={IMAGE_LOGO_CLASS}
+      style={getLogoStyle(partner)}
       draggable="false"
       onError={() => {
         if (sourceIndex < sources.length - 1) {
@@ -88,14 +83,13 @@ function LocalLogoFallback({ partner }) {
   return (
     <span
       className="text-white/90 font-semibold text-sm sm:text-base tracking-tight whitespace-nowrap"
-      title={partner.displayName}
     >
       {partner.displayName}
     </span>
   )
 }
 
-function LocalLogo({ partner, scaleClass = '' }) {
+function LocalLogo({ partner }) {
   const [failed, setFailed] = useState(false)
 
   if (failed) {
@@ -106,10 +100,10 @@ function LocalLogo({ partner, scaleClass = '' }) {
     <img
       src={partner.logoSrc}
       alt={partner.logoAlt}
-      title={partner.displayName}
       loading="lazy"
       decoding="async"
-      className={`${IMAGE_LOGO_CLASS} ${scaleClass}`}
+      className={IMAGE_LOGO_CLASS}
+      style={getLogoStyle(partner)}
       draggable="false"
       onError={() => setFailed(true)}
     />
@@ -118,26 +112,23 @@ function LocalLogo({ partner, scaleClass = '' }) {
 
 export default function PartnerLogo({ partner }) {
   const Icon = partner.icon ? ICON_MAP[partner.icon] : null
-  const shouldScaleUp = LARGE_SCALE_PARTNERS.has(partner.id)
-  const scaleClass = shouldScaleUp ? 'scale-[1.6] transform' : ''
 
   if (Icon) {
     return (
       <Icon
-        className={`${LOGO_CLASS} flex-shrink-0 ${scaleClass}`}
-        style={{ color: partner.color ?? '#ffffff' }}
+        className={`${LOGO_CLASS} flex-shrink-0`}
+        style={{ color: partner.color ?? '#ffffff', ...getLogoStyle(partner) }}
         aria-label={partner.logoAlt}
-        title={partner.displayName}
       />
     )
   }
 
   if (partner.logoSrc) {
-    return <LocalLogo partner={partner} scaleClass={scaleClass} />
+    return <LocalLogo partner={partner} />
   }
 
   if (partner.domain) {
-    return <DomainLogo partner={partner} scaleClass={scaleClass} />
+    return <DomainLogo partner={partner} />
   }
 
   return (

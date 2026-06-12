@@ -20,7 +20,7 @@ function StatsBar({ stats }) {
                 <span className="text-white font-bold text-sm sm:text-base lg:text-lg leading-tight tracking-tight">
                   {stat.value}
                 </span>
-                <span className="text-white/90 text-[9px] sm:text-[10px] mt-0.5 leading-snug">
+                <span className="text-white/90 text-[9px] sm:text-[16px] mt-0.5 leading-snug">
                   {stat.label}
                 </span>
               </div>
@@ -163,7 +163,7 @@ export default function CompanyValues({ content }) {
       <StatsBar stats={content.stats} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12 lg:py-14">
-        <h2 className="text-white font-semibold text-[18px] sm:text-[20px] lg:text-[26px] leading-[1.2] tracking-normal mb-8 sm:mb-10 lg:mb-12">
+        <h2 className="text-white font-semibold  text-[22px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-8 sm:mb-10 lg:mb-12">
           {content.heading}
         </h2>
 
@@ -174,10 +174,10 @@ export default function CompanyValues({ content }) {
                 <div className="flex items-start gap-3 sm:gap-4 py-6 sm:py-7">
                   <GlowBullet />
                   <div className="flex flex-col gap-1.5 pt-1.5">
-                    <h3 className="text-white font-bold text-base sm:text-lg leading-snug">
+                    <h3 className="text-white font-bold text-[13.5px] sm:text-lg leading-snug">
                       {point.title}
                     </h3>
-                    <p className="text-[#8b95a5] text-[13px] sm:text-sm leading-relaxed">
+                    <p className="text-[#8b95a5] text-[13px] sm:text-[16px] leading-relaxed">
                       {point.description}
                     </p>
                   </div>

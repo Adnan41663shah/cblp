@@ -88,10 +88,10 @@ export default function ExpertSessions() {
 
   return (
     <section id="expert-sessions" className="relative scroll-mt-[var(--nav-scroll-offset)] bg-black pt-10 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <p className="text-[#8b95a5] text-[10px] sm:text-[11px] font-semibold tracking-[0.14em] uppercase mb-3 sm:mb-4">
+      <p className="text-[#8b95a5] text-[10px] sm:text-[14px] font-semibold tracking-[0.14em] uppercase mb-3 sm:mb-4">
         {eyebrow}
       </p>
-      <h2 className="text-white font-semibold text-[22px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-8 sm:mb-10 lg:mb-12">
+      <h2 className="text-white font-semibold text-[18px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-8 sm:mb-10 lg:mb-12">
         {title}
       </h2>
 

@@ -126,7 +126,7 @@ export default function HeroSection({ course, courseKey = 'data-science' }) {
             </h1>
 
             <div className="relative z-10 flex flex-col gap-2 sm:gap-2.5">
-              <span className="text-[#b8c4d4] text-[11px] font-bold leading-relaxed">
+              <span className="text-[#b8c4d4] text-[12px] sm:text-[13px] lg:text-[14px] leading-relaxed">
                 In collaboration with
               </span>
               <div className="flex items-center gap-3 sm:gap-4">
@@ -143,13 +143,13 @@ export default function HeroSection({ course, courseKey = 'data-science' }) {
               </div>
             </div>
 
-            <div className="relative z-10 flex flex-col gap-6 sm:gap-7">
+            <div className="relative z-10 flex flex-col gap-4 sm:gap-2">
               {course.bullets.map((bullet) => (
                 <div key={bullet} className="flex items-center gap-3 sm:gap-4">
                   <div className="mt-1.5">
                     <GlowBullet />
                   </div>
-                  <p className="text-[#e2e8f0] text-[13px] sm:text-sm leading-relaxed pt-2">
+                  <p className="text-[#e2e8f0] text-[13px] sm:text-[14px] leading-relaxed pt-2">
                     {bullet}
                   </p>
                 </div>

@@ -83,13 +83,11 @@ body {
   height: 25%;
   min-height: 70px;
   pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(5, 5, 5, 0) 0%,
-    rgba(5, 5, 5, 0.4) 40%,
-    rgba(5, 5, 5, 0.85) 75%,
-    rgba(5, 5, 5, 1) 100%
-  );
+  background: linear-gradient(to bottom,
+      rgba(5, 5, 5, 0) 0%,
+      rgba(5, 5, 5, 0.4) 40%,
+      rgba(5, 5, 5, 0.85) 75%,
+      rgba(5, 5, 5, 1) 100%);
 }
 
 @media (min-width: 640px) {
@@ -127,74 +125,60 @@ body {
 .hero-section {
   margin-top: calc(-1 * var(--main-nav-height));
   padding-top: calc(var(--main-nav-height) + var(--nav-gap));
-  background: linear-gradient(
-    to right,
-    #120828 0%,
-    #1e0d42 15%,
-    #3a1f6a 28%,
-    #1a1535 45%,
-    #101e2e 55%,
-    #1a3a50 72%,
-    #0e2438 88%,
-    #050e18 100%
-  );
+  background: linear-gradient(to right,
+      #120828 0%,
+      #1e0d42 15%,
+      #3a1f6a 28%,
+      #1a1535 45%,
+      #101e2e 55%,
+      #1a3a50 72%,
+      #0e2438 88%,
+      #050e18 100%);
 }
 
 .hero-section__glow-left {
-  background: radial-gradient(
-    ellipse 70% 32% at 12% 18%,
-    rgba(45, 18, 80, 0.75) 0%,
-    rgba(30, 10, 55, 0.4) 42%,
-    transparent 72%
-  );
+  background: radial-gradient(ellipse 70% 32% at 12% 18%,
+      rgba(45, 18, 80, 0.75) 0%,
+      rgba(30, 10, 55, 0.4) 42%,
+      transparent 72%);
 }
 
 .hero-section__glow-right {
-  background: radial-gradient(
-    ellipse 70% 32% at 88% 82%,
-    rgba(8, 45, 72, 0.72) 0%,
-    rgba(5, 30, 50, 0.38) 42%,
-    transparent 72%
-  );
+  background: radial-gradient(ellipse 70% 32% at 88% 82%,
+      rgba(8, 45, 72, 0.72) 0%,
+      rgba(5, 30, 50, 0.38) 42%,
+      transparent 72%);
 }
 
 @media (min-width: 640px) {
   .hero-section__glow-left {
-    background: radial-gradient(
-      ellipse 50% 48% at 0% 50%,
-      rgba(45, 18, 80, 0.85) 0%,
-      rgba(30, 10, 55, 0.48) 38%,
-      transparent 72%
-    );
+    background: radial-gradient(ellipse 50% 48% at 0% 50%,
+        rgba(45, 18, 80, 0.85) 0%,
+        rgba(30, 10, 55, 0.48) 38%,
+        transparent 72%);
   }
 
   .hero-section__glow-right {
-    background: radial-gradient(
-      ellipse 50% 48% at 100% 50%,
-      rgba(8, 45, 72, 0.8) 0%,
-      rgba(5, 30, 50, 0.45) 38%,
-      transparent 72%
-    );
+    background: radial-gradient(ellipse 50% 48% at 100% 50%,
+        rgba(8, 45, 72, 0.8) 0%,
+        rgba(5, 30, 50, 0.45) 38%,
+        transparent 72%);
   }
 }
 
 @media (min-width: 1024px) {
   .hero-section__glow-left {
-    background: radial-gradient(
-      ellipse 42% 65% at 0% 50%,
-      rgba(45, 18, 80, 0.9) 0%,
-      rgba(30, 10, 55, 0.55) 38%,
-      transparent 72%
-    );
+    background: radial-gradient(ellipse 42% 65% at 0% 50%,
+        rgba(45, 18, 80, 0.9) 0%,
+        rgba(30, 10, 55, 0.55) 38%,
+        transparent 72%);
   }
 
   .hero-section__glow-right {
-    background: radial-gradient(
-      ellipse 42% 65% at 100% 50%,
-      rgba(8, 45, 72, 0.85) 0%,
-      rgba(5, 30, 50, 0.5) 38%,
-      transparent 72%
-    );
+    background: radial-gradient(ellipse 42% 65% at 100% 50%,
+        rgba(8, 45, 72, 0.85) 0%,
+        rgba(5, 30, 50, 0.5) 38%,
+        transparent 72%);
   }
 }
 
@@ -284,30 +268,24 @@ body {
 }
 
 .sections-spotlight {
-  background: radial-gradient(
-    ellipse 38% 118% at 50% 0%,
-    rgba(196, 181, 253, 0.5) 0%,
-    rgba(167, 139, 250, 0.6) 18%,
-    rgba(139, 92, 246, 0.64) 38%,
-    rgba(124, 58, 237, 0.38) 54%,
-    rgba(109, 40, 217, 0.18) 66%,
-    rgba(91, 33, 182, 0.07) 76%,
-    transparent 92%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.42) 7%,
-    #000000 14%,
-    #000000 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.42) 7%,
-    #000000 14%,
-    #000000 100%
-  );
+  background: radial-gradient(ellipse 38% 118% at 50% 0%,
+      rgba(196, 181, 253, 0.5) 0%,
+      rgba(167, 139, 250, 0.6) 18%,
+      rgba(139, 92, 246, 0.64) 38%,
+      rgba(124, 58, 237, 0.38) 54%,
+      rgba(109, 40, 217, 0.18) 66%,
+      rgba(91, 33, 182, 0.07) 76%,
+      transparent 92%);
+  -webkit-mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.42) 7%,
+      #000000 14%,
+      #000000 100%);
+  mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.42) 7%,
+      #000000 14%,
+      #000000 100%);
 }
 
 .sections-grid {
@@ -316,22 +294,18 @@ body {
     linear-gradient(90deg, rgba(167, 139, 250, 0.14) 2px, transparent 2px);
   background-size: 120px 120px;
   background-position: left top;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    transparent 14%,
-    rgba(0, 0, 0, 0.35) 26%,
-    rgba(0, 0, 0, 0.72) 36%,
-    #000000 46%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    transparent 14%,
-    rgba(0, 0, 0, 0.35) 26%,
-    rgba(0, 0, 0, 0.72) 36%,
-    #000000 46%
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      transparent 14%,
+      rgba(0, 0, 0, 0.35) 26%,
+      rgba(0, 0, 0, 0.72) 36%,
+      #000000 46%);
+  mask-image: linear-gradient(to bottom,
+      transparent 0%,
+      transparent 14%,
+      rgba(0, 0, 0, 0.35) 26%,
+      rgba(0, 0, 0, 0.72) 36%,
+      #000000 46%);
 }
 
 .sections-grid--center {
@@ -341,35 +315,27 @@ body {
   background-size: 120px 120px;
   background-position: left top;
   -webkit-mask-image:
-    linear-gradient(
-      to bottom,
+    linear-gradient(to bottom,
       transparent 0%,
       transparent 14%,
       rgba(0, 0, 0, 0.35) 26%,
       rgba(0, 0, 0, 0.72) 36%,
-      #000000 46%
-    ),
-    radial-gradient(
-      ellipse 36% 112% at 50% 4%,
+      #000000 46%),
+    radial-gradient(ellipse 36% 112% at 50% 4%,
       #000000 14%,
       rgba(0, 0, 0, 0.75) 50%,
-      transparent 90%
-    );
+      transparent 90%);
   mask-image:
-    linear-gradient(
-      to bottom,
+    linear-gradient(to bottom,
       transparent 0%,
       transparent 14%,
       rgba(0, 0, 0, 0.35) 26%,
       rgba(0, 0, 0, 0.72) 36%,
-      #000000 46%
-    ),
-    radial-gradient(
-      ellipse 36% 112% at 50% 4%,
+      #000000 46%),
+    radial-gradient(ellipse 36% 112% at 50% 4%,
       #000000 14%,
       rgba(0, 0, 0, 0.75) 50%,
-      transparent 90%
-    );
+      transparent 90%);
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
 }
@@ -379,48 +345,38 @@ body {
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
   background-size: 140px 140px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 36% 112% at 50% 2%,
-    #000000 10%,
-    rgba(0, 0, 0, 0.7) 48%,
-    transparent 90%
-  );
-  mask-image: radial-gradient(
-    ellipse 36% 112% at 50% 2%,
-    #000000 10%,
-    rgba(0, 0, 0, 0.7) 48%,
-    transparent 90%
-  );
+  -webkit-mask-image: radial-gradient(ellipse 36% 112% at 50% 2%,
+      #000000 10%,
+      rgba(0, 0, 0, 0.7) 48%,
+      transparent 90%);
+  mask-image: radial-gradient(ellipse 36% 112% at 50% 2%,
+      #000000 10%,
+      rgba(0, 0, 0, 0.7) 48%,
+      transparent 90%);
 }
 
 .sections-top-overlay {
-  background: linear-gradient(
-    to bottom,
-    #000000 0%,
-    #000000 4%,
-    rgba(0, 0, 0, 0.82) 9%,
-    rgba(0, 0, 0, 0.45) 15%,
-    rgba(0, 0, 0, 0.12) 21%,
-    transparent 28%
-  );
+  background: linear-gradient(to bottom,
+      #000000 0%,
+      #000000 4%,
+      rgba(0, 0, 0, 0.82) 9%,
+      rgba(0, 0, 0, 0.45) 15%,
+      rgba(0, 0, 0, 0.12) 21%,
+      transparent 28%);
 }
 
 .sections-bottom-corner-overlay {
   background:
-    radial-gradient(
-      ellipse 62% 75% at 0% 100%,
+    radial-gradient(ellipse 62% 75% at 0% 100%,
       #000000 0%,
       rgba(0, 0, 0, 0.88) 32%,
       rgba(0, 0, 0, 0.45) 52%,
-      transparent 74%
-    ),
-    radial-gradient(
-      ellipse 62% 75% at 100% 100%,
+      transparent 74%),
+    radial-gradient(ellipse 62% 75% at 100% 100%,
       #000000 0%,
       rgba(0, 0, 0, 0.88) 32%,
       rgba(0, 0, 0, 0.45) 52%,
-      transparent 74%
-    );
+      transparent 74%);
 }
 
 .scrollbar-none {
@@ -519,12 +475,10 @@ body {
 }
 
 .iit-advantage-glass-card__sheen {
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.07) 0%,
-    rgba(255, 255, 255, 0.025) 10%,
-    transparent 26%
-  );
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.07) 0%,
+      rgba(255, 255, 255, 0.025) 10%,
+      transparent 26%);
 }
 
 .iit-layered-frame-outer {
@@ -656,13 +610,11 @@ body {
 }
 
 .placement-preview-card__glow {
-  background: radial-gradient(
-    ellipse 80% 70% at 50% 42%,
-    rgba(255, 107, 53, 0.38) 0%,
-    rgba(255, 107, 53, 0.16) 42%,
-    rgba(255, 107, 53, 0.05) 62%,
-    transparent 80%
-  );
+  background: radial-gradient(ellipse 80% 70% at 50% 42%,
+      rgba(255, 107, 53, 0.38) 0%,
+      rgba(255, 107, 53, 0.16) 42%,
+      rgba(255, 107, 53, 0.05) 62%,
+      transparent 80%);
 }
 
 .expert-sessions-track {
@@ -760,30 +712,25 @@ body {
 }
 
 .review-card__glow--coral {
-  background: radial-gradient(
-    ellipse 80% 70% at 50% 0%,
-    rgba(255, 107, 53, 0.16) 0%,
-    transparent 72%
-  );
+  background: radial-gradient(ellipse 80% 70% at 50% 0%,
+      rgba(255, 107, 53, 0.16) 0%,
+      transparent 72%);
 }
 
 .review-card__glow--purple {
-  background: radial-gradient(
-    ellipse 80% 70% at 50% 0%,
-    rgba(167, 139, 250, 0.18) 0%,
-    transparent 72%
-  );
+  background: radial-gradient(ellipse 80% 70% at 50% 0%,
+      rgba(167, 139, 250, 0.18) 0%,
+      transparent 72%);
 }
 
 .review-card__glow--emerald {
-  background: radial-gradient(
-    ellipse 80% 70% at 50% 0%,
-    rgba(52, 211, 153, 0.16) 0%,
-    transparent 72%
-  );
+  background: radial-gradient(ellipse 80% 70% at 50% 0%,
+      rgba(52, 211, 153, 0.16) 0%,
+      transparent 72%);
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .review-card,
   .review-card:hover {
     transform: none;
@@ -812,6 +759,7 @@ body {
 }
 
 @media (min-width: 640px) {
+
   .form-status-success,
   .form-status-error {
     font-size: 0.8125rem;
@@ -1002,6 +950,7 @@ body {
 }
 
 @media (max-width: 639px) {
+
   .phone-input-field__selector,
   .phone-input-field .react-international-phone-country-selector-button {
     min-width: 4.25rem;

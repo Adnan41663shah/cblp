@@ -34,9 +34,8 @@ function PlacementMarqueeRow({ partners, direction = 'left', showRowDivider = fa
 
   return (
     <div
-      className={`placement-marquee-row relative overflow-hidden py-8 sm:py-10 lg:py-12 ${
-        showRowDivider ? 'border-b border-white/10' : ''
-      }`}
+      className={`placement-marquee-row relative overflow-hidden py-8 sm:py-10 lg:py-12 ${showRowDivider ? 'border-b border-white/10' : ''
+        }`}
     >
       <div
         className={`placement-marquee-track placement-marquee-track--${direction} flex w-max items-center`}
@@ -69,7 +68,7 @@ function FeatureList({ features }) {
       {features.map((feature, index) => (
         <div key={feature.title}>
           <div className="py-7 sm:py-8 lg:py-9">
-            <h3 className="text-white font-sembold text-[17px] sm:text-[19px] lg:text-[22px] leading-snug">
+            <h3 className="text-white font-sembold text-[16px] sm:text-[19px] lg:text-[22px] leading-snug">
               {feature.title}
             </h3>
             <p className="text-[#8b95a5] text-[14px] sm:text-[15px] lg:text-[16px] mt-2 sm:mt-2.5 leading-relaxed">

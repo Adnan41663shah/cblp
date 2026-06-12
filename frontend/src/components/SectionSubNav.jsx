@@ -117,7 +117,7 @@ export default function SectionSubNav() {
                       <button
                         type="button"
                         onClick={() => scrollToSection(item.targetId, item.id)}
-                        className={`relative cursor-pointer whitespace-nowrap pb-1 text-[11px] font-medium transition-colors duration-200 sm:pb-1.5 sm:text-[13px] lg:text-sm ${
+                        className={`relative cursor-pointer whitespace-nowrap pb-1 text-[11px] font-medium transition-colors duration-200 sm:pb-1.5 sm:text-[13px] lg:text-[16px] ${
                           isActive
                             ? 'font-semibold text-white'
                             : 'text-[#8a8a8a] hover:text-[#b0b0b0]'

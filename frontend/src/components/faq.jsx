@@ -46,7 +46,7 @@ export default function Faq({ courseKey = 'data-science' }) {
 
   return (
     <section id="faqs" className="relative scroll-mt-[var(--nav-scroll-offset)] bg-black pt-10 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <h2 className="text-white font-semibold text-[20px] sm:text-[24px] leading-[1.2] tracking-normal mb-10  ">
+      <h2 className="text-white font-semibold text-[20px] sm:text-[28px] leading-[1.2] tracking-normal mb-10  ">
         Frequently Asked Questions
       </h2>
 
