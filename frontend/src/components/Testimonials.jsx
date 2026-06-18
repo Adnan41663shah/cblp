@@ -4,15 +4,8 @@ import { TbPlayerPlayFilled } from 'react-icons/tb'
 import {
   getYoutubeEmbedUrl,
   getYoutubeThumbnail,
-  REVIEWS,
   testimonialsContent,
 } from '../data/testimonials'
-
-const GLOW_BADGE_CLASS = {
-  coral: 'text-[#ff8a5c] bg-[#ff6b35]/12 border-[#ff6b35]/25',
-  purple: 'text-[#c4b5fd] bg-[#7c3aed]/12 border-[#a78bfa]/25',
-  emerald: 'text-[#6ee7b7] bg-[#10b981]/12 border-[#34d399]/25',
-}
 
 function WatchVideoBadge() {
   return (
@@ -62,52 +55,6 @@ function TestimonialCard({ testimonial, onPlay }) {
         </p>
       </div>
     </button>
-  )
-}
-
-function ReviewCard({ review }) {
-  return (
-    <article
-      className={`review-card review-card--${review.glowColor} group relative flex h-full flex-col overflow-hidden rounded-[16px] p-3 sm:rounded-[18px] sm:p-3.5 lg:rounded-[20px] lg:p-4`}
-    >
-      <div
-        className={`review-card__glow review-card__glow--${review.glowColor} pointer-events-none absolute inset-0`}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 flex min-w-0 items-center gap-2.5 sm:gap-3">
-        <div className="h-9 w-9 shrink-0 overflow-hidden rounded-full border border-white/15 sm:h-10 sm:w-10 lg:h-11 lg:w-11 transition-transform duration-300 group-hover:scale-[1.04]">
-          <img
-            src={review.image}
-            alt={review.name}
-            className="h-full w-full object-cover"
-            loading="lazy"
-          />
-        </div>
-
-        <div className="min-w-0 flex-1">
-          <h3 className="truncate text-[12px] font-bold leading-tight text-white sm:text-[13px] lg:text-sm">
-            {review.name}
-          </h3>
-          <p className="mt-0.5 truncate text-[10px] leading-tight text-[#8b95a5] sm:text-[11px]">
-            {review.role}
-          </p>
-        </div>
-      </div>
-
-      <div className="relative z-10 mt-2 flex flex-wrap items-center gap-1.5 sm:gap-2">
-        <span
-          className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-semibold sm:px-2.5 sm:py-1 sm:text-[11px] ${GLOW_BADGE_CLASS[review.glowColor]}`}
-        >
-          {review.package}
-        </span>
-        <span className="text-[10px] font-medium text-[#6b7280] sm:text-[11px]">{review.batch}</span>
-      </div>
-
-      <p className="relative z-10 mt-2.5 flex-1 text-[12px] leading-relaxed text-[#c5cdd8] sm:mt-3 sm:text-[13px]">
-        &ldquo;{review.text}&rdquo;
-      </p>
-    </article>
   )
 }
 
@@ -196,6 +143,10 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="relative scroll-mt-[var(--nav-scroll-offset)] bg-black pt-10 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
+      <h2 className="text-white font-semibold text-[20px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-6 sm:mb-8 lg:mb-10">
+        Hear from our alumni
+      </h2>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {items.map((testimonial) => (
           <TestimonialCard
@@ -204,18 +155,6 @@ export default function Testimonials() {
             onPlay={setActiveTestimonial}
           />
         ))}
-      </div>
-
-      <div className="mt-12 sm:mt-14 lg:mt-16">
-        <h2 className="text-white font-semibold text-[18px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-6 sm:mb-8 lg:mb-10">
-          Success stories from our alumni
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
-          {REVIEWS.map((review) => (
-            <ReviewCard key={review.id} review={review} />
-          ))}
-        </div>
       </div>
 
       {activeTestimonial && (

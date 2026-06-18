@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import whatsappIcon from '../assets/whatsapp-color-svgrepo-com.svg'
+import CallbackLeadModal from './CallbackLeadModal'
 
 const MOBILE_QUERY = '(max-width: 639px)'
-const HERO_FORM_ID = 'hero-form'
+const HERO_ID = 'hero'
 
-export default function MobileStickyWebinarCta() {
+export default function MobileStickyWebinarCta({ courseKey = 'data-science' }) {
   const [visible, setVisible] = useState(false)
+  const [isCallbackOpen, setIsCallbackOpen] = useState(false)
 
   useEffect(() => {
-    const formEl = document.getElementById(HERO_FORM_ID)
-    if (!formEl) return undefined
+    const heroEl = document.getElementById(HERO_ID)
+    if (!heroEl) return undefined
 
     const mediaQuery = window.matchMedia(MOBILE_QUERY)
     let observer
@@ -34,7 +36,7 @@ export default function MobileStickyWebinarCta() {
       observer = new IntersectionObserver(handleIntersection, {
         threshold: [0, 0.25, 0.5, 0.75, 1],
       })
-      observer.observe(formEl)
+      observer.observe(heroEl)
     }
 
     setupObserver()
@@ -50,20 +52,40 @@ export default function MobileStickyWebinarCta() {
   const whatsappUrl = `https://wa.me/919834887259?text=${encodeURIComponent(message)}`
 
   return (
-    <div
-      className={`mobile-sticky-cta sm:hidden ${visible ? 'mobile-sticky-cta--visible' : ''}`}
-      aria-hidden={!visible}
-    >
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        tabIndex={visible ? 0 : -1}
-        className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#22c35e] active:bg-[#1fa851] text-white font-bold text-sm py-3.5 rounded-xl transition-colors duration-200 cursor-pointer shadow-lg no-underline"
+    <>
+      <div
+        className={`mobile-sticky-cta sm:hidden ${visible ? 'mobile-sticky-cta--visible' : ''}`}
+        aria-hidden={!visible}
       >
-        <img src={whatsappIcon} alt="" className="w-5 h-5" />
-        Chat on WhatsApp
-      </a>
-    </div>
+        <div className="flex items-center gap-2.5">
+          <button
+            type="button"
+            onClick={() => setIsCallbackOpen(true)}
+            tabIndex={visible ? 0 : -1}
+            className="flex-1 cta-base cta-primary text-sm py-3.5"
+          >
+            Book Free Consultation
+          </button>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            tabIndex={visible ? 0 : -1}
+            aria-label="Chat with us on WhatsApp"
+            className="flex h-[46px] w-[46px] flex-shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.06] transition-colors duration-200 hover:bg-white/10 no-underline"
+          >
+            <img src={whatsappIcon} alt="" className="w-6 h-6" />
+          </a>
+        </div>
+      </div>
+
+      {isCallbackOpen && (
+        <CallbackLeadModal
+          courseKey={courseKey}
+          source="mobile-sticky-consultation"
+          onClose={() => setIsCallbackOpen(false)}
+        />
+      )}
+    </>
   )
 }

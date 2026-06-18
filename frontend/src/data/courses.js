@@ -5,7 +5,6 @@ import {
   SiGithubactions,
   SiGooglecolab,
   SiJenkins,
-  SiJupyter,
   SiKubernetes,
   SiLinux,
   SiPandas,
@@ -24,6 +23,15 @@ export const courses = {
     title: 'Data Science & AI Program by Cloudblitz',
     pageTitle: 'Data Science & AI | Cloudblitz',
     heading: 'Become an Industry‑Ready Data Scientist & AI Expert.',
+    hero: {
+      eyebrow: 'In collaboration with IIT(BHU) Varanasi',
+      headlineLead: 'Become the',
+      headlineRotators: ['Data Scientist', 'AI Engineer', 'ML Engineer'],
+      headlineTrail: 'top companies hire.',
+      subhead:
+        'An IIT(BHU) Varanasi–backed program with real-world projects, 1:1 industry mentorship, and dedicated placement support — engineered to turn you into the talent companies compete for.',
+      outcomeRole: 'Data Scientist',
+    },
     bullets: [
       'Designed for professionals to stand out in data science & AI job market',
       'AI-infused curriculum that helps you master 12+ real-world projects and workflows',
@@ -77,6 +85,15 @@ export const courses = {
     title: 'Cloud DevOps Program by Cloudblitz',
     pageTitle: 'Cloud DevOps | Cloudblitz',
     heading: 'Become a Production‑Ready Cloud DevOps Engineer.',
+    hero: {
+      eyebrow: 'In collaboration with IIT(BHU) Varanasi',
+      headlineLead: 'Become the',
+      headlineRotators: ['DevOps Engineer', 'Cloud Engineer', 'SRE'],
+      headlineTrail: 'top companies hire.',
+      subhead:
+        'An IIT(BHU) Varanasi–backed program with hands-on production labs, 1:1 industry mentorship, and dedicated placement support — engineered to turn you into the engineer companies compete for.',
+      outcomeRole: 'DevOps Engineer',
+    },
     bullets: [
       'Built for professionals ready to deploy, scale, and automate in the cloud',
       'Hands-on labs covering CI/CD, Kubernetes, and production infrastructure',

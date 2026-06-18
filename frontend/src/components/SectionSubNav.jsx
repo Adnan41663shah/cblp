@@ -5,6 +5,7 @@ import { getMainNavHeight, getScrollOffset } from '../utils/navHeights'
 const navItems = [
   { id: 'curriculum', label: 'Curriculum', targetId: 'curriculum' },
   { id: 'placements', label: 'Placements', targetId: 'placements' },
+  { id: 'outcomes', label: 'Outcomes', targetId: 'outcomes' },
   { id: 'expert-sessions', label: 'Expert Sessions', targetId: 'expert-sessions' },
   { id: 'testimonials', label: 'Testimonials', targetId: 'testimonials' },
   { id: 'faqs', label: 'FAQs', targetId: 'faqs' },

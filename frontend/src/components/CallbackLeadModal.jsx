@@ -18,7 +18,7 @@ const MODAL_CONTENT = {
   },
 }
 
-export default function CallbackLeadModal({ courseKey, onClose }) {
+export default function CallbackLeadModal({ courseKey, onClose, source = 'navbar-callback' }) {
   const content = MODAL_CONTENT[courseKey] ?? MODAL_CONTENT['data-science']
 
   const {
@@ -31,7 +31,7 @@ export default function CallbackLeadModal({ courseKey, onClose }) {
     isSuccess,
     submitError,
   } = useLeadForm({
-    source: 'navbar-callback',
+    source,
     courseKey,
   })
 

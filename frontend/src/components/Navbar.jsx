@@ -27,25 +27,35 @@ export default function Navbar({ courseKey = 'data-science' }) {
               />
             </Link>
 
-            {/* Mobile: Request callback button */}
+            {/* Mobile: primary consultation CTA */}
             <button
               type="button"
               onClick={() => setIsCallbackOpen(true)}
-              className="inline-flex sm:hidden shrink-0 items-center justify-center rounded-[40px] bg-[#ff6b35] px-2.5 py-1.5 text-[10px] font-semibold leading-none text-white transition-colors duration-200 hover:bg-[#e85a28] cursor-pointer whitespace-nowrap"
+              className="inline-flex sm:hidden shrink-0 items-center justify-center rounded-[40px] bg-[#ff6b35] px-3 py-1.5 text-[10px] font-semibold leading-none text-white transition-colors duration-200 hover:bg-[#e85a28] cursor-pointer whitespace-nowrap"
             >
-              Request callback
+              Book Free Consult
             </button>
 
-            {/* Desktop: WhatsApp button */}
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex shrink-0 items-center justify-center gap-1.5 rounded-[40px] bg-[#25D366] px-3.5 py-2 text-xs font-semibold leading-none text-white transition-colors duration-200 hover:bg-[#22c35e] active:bg-[#1fa851] cursor-pointer whitespace-nowrap no-underline shadow-sm lg:text-sm"
-            >
-              <img src={whatsappIcon} alt="whatsapp" className="w-4 h-4 lg:w-4.5 lg:h-4.5" />
-              Whatsapp
-            </a>
+            {/* Desktop: WhatsApp demoted to a quiet secondary, consultation is primary */}
+            <div className="hidden sm:flex shrink-0 items-center gap-2.5">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with us on WhatsApp"
+                className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-[40px] border border-white/15 bg-white/[0.04] px-3 py-2 text-xs font-medium leading-none text-white/90 transition-colors duration-200 hover:bg-white/[0.08] cursor-pointer whitespace-nowrap no-underline lg:text-sm"
+              >
+                <img src={whatsappIcon} alt="" className="w-4 h-4 lg:w-4.5 lg:h-4.5" />
+                WhatsApp
+              </a>
+              <button
+                type="button"
+                onClick={() => setIsCallbackOpen(true)}
+                className="inline-flex shrink-0 items-center justify-center rounded-[40px] bg-[#ff6b35] px-4 py-2 text-xs font-semibold leading-none text-white transition-colors duration-200 hover:bg-[#e85a28] active:bg-[#d24e20] cursor-pointer whitespace-nowrap shadow-[0_8px_24px_rgba(255,107,53,0.28)] lg:text-sm"
+              >
+                Book Free Consultation
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -53,6 +63,7 @@ export default function Navbar({ courseKey = 'data-science' }) {
       {isCallbackOpen && (
         <CallbackLeadModal
           courseKey={courseKey}
+          source="navbar-consultation"
           onClose={() => setIsCallbackOpen(false)}
         />
       )}

@@ -5,6 +5,7 @@ import Footer from '../components/footer'
 import Navbar from '../components/Navbar'
 import HeroSection from '../components/HeroSection'
 import SectionsWrapper from '../components/SectionsWrapper'
+import TrustStrip from '../components/TrustStrip'
 import { courses } from '../data/courses'
 import { useCourseDocument } from '../hooks/useCourseDocument'
 
@@ -34,6 +35,7 @@ export default function LandingPage({ courseKey }) {
     <div className="min-h-screen">
       <Navbar courseKey={courseKey} />
       <HeroSection course={course} courseKey={courseKey} />
+      <TrustStrip />
       <CompanyValues content={course.companyValues} />
       <SectionsWrapper courseKey={courseKey} />
       <Footer />
