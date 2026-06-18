@@ -195,7 +195,7 @@ export default function CompanyValues({ content }) {
       <StatsBar stats={content.stats} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12 lg:py-14">
-        <h2 className="text-white font-semibold  text-[22px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-8 sm:mb-10 lg:mb-12">
+        <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
           {content.heading}
         </h2>
 

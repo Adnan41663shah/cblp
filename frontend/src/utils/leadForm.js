@@ -109,9 +109,10 @@ export async function submitLeadForm(payload) {
 
   const body = {
     name: payload.name.trim(),
-    email: payload.email.trim() || null,
+    email: payload.email?.trim() || null,
     phone: normalizePhone(payload.phone),
-    experience: payload.experience,
+    experience: payload.experience || null,
+    careerGoal: payload.careerGoal?.trim() || null,
     source: payload.source,
     course: payload.course,
     submittedAt: new Date().toISOString(),

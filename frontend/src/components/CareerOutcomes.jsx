@@ -200,7 +200,7 @@ export default function CareerOutcomes({ courseKey = 'data-science' }) {
       <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8b95a5] sm:mb-4 sm:text-[14px]">
         Placement Success
       </p>
-      <h2 className="mb-2 text-[20px] font-semibold leading-[1.2] tracking-normal text-white sm:text-[26px] lg:text-[28px]">
+      <h2 className="mb-2 text-[22px] font-semibold leading-[1.2] tracking-tight text-white sm:text-[28px] lg:text-[32px]">
         Careers, measurably transformed
       </h2>
       <p className="mb-8 max-w-xl text-[13px] leading-relaxed text-[#8b95a5] sm:mb-10 sm:text-[15px]">

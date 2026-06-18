@@ -49,7 +49,7 @@ function ExpertHighlightList({ items }) {
 function BootcampExpertsCard({ content }) {
   return (
     <div className="mt-24 sm:mt-28 lg:mt-32">
-      <h2 className="text-white font-semibold text-[20px] sm:text-[26px] lg:text-[28px] leading-[1.5] tracking-normal mb-6 sm:mb-8 lg:mb-10">
+      <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
         {content.title}
       </h2>
 
@@ -91,7 +91,7 @@ export default function ExpertSessions() {
       <p className="text-[#8b95a5] text-[10px] sm:text-[14px] font-semibold tracking-[0.14em] uppercase mb-3 sm:mb-4">
         {eyebrow}
       </p>
-      <h2 className="text-white font-semibold text-[18px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-8 sm:mb-10 lg:mb-12">
+      <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
         {title}
       </h2>
 

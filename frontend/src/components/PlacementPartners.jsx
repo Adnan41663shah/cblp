@@ -68,7 +68,7 @@ function FeatureList({ features }) {
       {features.map((feature, index) => (
         <div key={feature.title}>
           <div className="py-7 sm:py-8 lg:py-9">
-            <h3 className="text-white font-sembold text-[16px] sm:text-[19px] lg:text-[22px] leading-snug">
+            <h3 className="text-white font-semibold text-[16px] sm:text-[19px] lg:text-[22px] leading-snug tracking-tight">
               {feature.title}
             </h3>
             <p className="text-[#8b95a5] text-[14px] sm:text-[15px] lg:text-[16px] mt-2 sm:mt-2.5 leading-relaxed">
@@ -102,7 +102,7 @@ export default function PlacementPartners({ courseKey = 'data-science' }) {
 
   return (
     <section id="placements" className="relative scroll-mt-[var(--nav-scroll-offset)] bg-black pt-10 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <h2 className="text-white font-semibold text-[20px] sm:text-[26px] lg:text-[28px] leading-[1.25] tracking-normal mb-8 sm:mb-10 lg:mb-12">
+      <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
         <span className="block">{content.heading.line1}</span>
         <span className="block">{content.heading.line2}</span>
       </h2>

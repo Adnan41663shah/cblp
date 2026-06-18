@@ -130,7 +130,7 @@ export default function IitAdvantages({ courseKey = 'data-science' }) {
 
   return (
     <section className="relative bg-black pt-10 sm:pt-12 lg:pt-14 pb-12 sm:pb-16 lg:pb-20">
-      <h2 className="text-white font-semibold text-[22px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-6 sm:mb-8 lg:mb-10">
+      <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
         {content.title}
       </h2>
 

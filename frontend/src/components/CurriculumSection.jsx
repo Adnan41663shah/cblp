@@ -132,7 +132,7 @@ export default function CurriculumSection({ courseKey = 'data-science' }) {
   return (
     <section id="syllabus" className="relative z-10 -mt-6 sm:-mt-10 lg:-mt-14 pb-12 sm:pb-16 lg:pb-20 bg-black scroll-mt-24">
       <div className="relative">
-        <h2 className="text-white  text-[22px] sm:text-[26px] lg:text-[28px] font-semibold leading-[1.2] tracking-normal mb-6 sm:mb-8 lg:mb-10 lg:mt-8">
+        <h2 className="text-white text-[22px] sm:text-[28px] lg:text-[32px] font-semibold leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10 lg:mt-8">
           {content.heading}
         </h2>
 

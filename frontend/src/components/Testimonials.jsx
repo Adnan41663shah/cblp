@@ -143,7 +143,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="relative scroll-mt-[var(--nav-scroll-offset)] bg-black pt-10 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <h2 className="text-white font-semibold text-[20px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-6 sm:mb-8 lg:mb-10">
+      <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
         Hear from our alumni
       </h2>
 

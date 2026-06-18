@@ -23,15 +23,15 @@ export default function Navbar({ courseKey = 'data-science' }) {
               <img
                 src={logoImg}
                 alt="Cloudblitz"
-                className="h-[30px] w-auto max-w-[150px] object-contain object-left sm:h-[38px] sm:max-w-[180px] lg:h-[42px]"
+                className="h-[24px] w-auto max-w-[112px] object-contain object-left sm:h-[38px] sm:max-w-[180px] lg:h-[42px]"
               />
             </Link>
 
-            {/* Mobile: primary consultation CTA */}
+            {/* Mobile: primary consultation CTA — priority 1, proper touch target */}
             <button
               type="button"
               onClick={() => setIsCallbackOpen(true)}
-              className="inline-flex sm:hidden shrink-0 items-center justify-center rounded-[40px] bg-[#ff6b35] px-3 py-1.5 text-[10px] font-semibold leading-none text-white transition-colors duration-200 hover:bg-[#e85a28] cursor-pointer whitespace-nowrap"
+              className="inline-flex sm:hidden shrink-0 items-center justify-center rounded-[40px] bg-[#ff6b35] px-4 py-3 text-[11px] font-semibold leading-none text-white shadow-[0_6px_18px_rgba(255,107,53,0.32)] transition-colors duration-200 hover:bg-[#e85a28] active:bg-[#d24e20] cursor-pointer whitespace-nowrap"
             >
               Book Free Consult
             </button>
