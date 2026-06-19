@@ -29,7 +29,7 @@ export const courses = {
       headlineRotators: ['Data Scientist', 'AI Engineer', 'ML Engineer'],
       headlineTrail: 'top companies hire.',
       subhead:
-        'An IIT(BHU) Varanasi–backed program with real-world projects, 1:1 industry mentorship, and dedicated placement support — engineered to turn you into the talent companies compete for.',
+        'An IIT(BHU) Varanasi–backed program with real-world projects, 1:1 industry mentorship, and dedicated placement support, engineered to turn you into the talent companies compete for.',
       outcomeRole: 'Data Scientist',
     },
     bullets: [
@@ -91,7 +91,7 @@ export const courses = {
       headlineRotators: ['DevOps Engineer', 'Cloud Engineer', 'SRE'],
       headlineTrail: 'top companies hire.',
       subhead:
-        'An IIT(BHU) Varanasi–backed program with hands-on production labs, 1:1 industry mentorship, and dedicated placement support — engineered to turn you into the engineer companies compete for.',
+        'An IIT(BHU) Varanasi–backed program with hands-on production labs, 1:1 industry mentorship, and dedicated placement support, engineered to turn you into the engineer companies compete for.',
       outcomeRole: 'DevOps Engineer',
     },
     bullets: [

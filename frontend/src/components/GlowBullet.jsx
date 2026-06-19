@@ -1,47 +1,32 @@
-export default function GlowBullet() {
+export default function GlowBullet({ index }) {
+  const numberStr = (index !== undefined ? index + 1 : 1).toString().padStart(2, '0')
+
   return (
     <div
       className="relative flex-shrink-0 flex items-center justify-center"
-      style={{ width: 40, height: 40 }}
+      style={{ width: 40, height: 40, filter: 'drop-shadow(0 3px 6px rgba(37,99,235,0.25))' }}
       aria-hidden="true"
     >
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          width: 48,
-          height: 14,
-          background:
-            'radial-gradient(ellipse 100% 100% at 50% 50%, rgba(56, 189, 248, 0.38) 0%, rgba(37, 99, 235, 0.12) 50%, transparent 75%)',
-        }}
-      />
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          width: 14,
-          height: 48,
-          background:
-            'radial-gradient(ellipse 100% 100% at 50% 50%, rgba(56, 189, 248, 0.38) 0%, rgba(37, 99, 235, 0.12) 50%, transparent 75%)',
-        }}
-      />
-      <div
-        className="absolute rounded-full pointer-events-none"
-        style={{
-          width: 32,
-          height: 32,
-          background:
-            'radial-gradient(circle, rgba(56, 189, 248, 0.5) 0%, rgba(37, 99, 235, 0.22) 42%, transparent 72%)',
-        }}
-      />
-      <div
-        className="relative rounded-full"
-        style={{
-          width: 10,
-          height: 10,
-          background: '#38bdf8',
-          boxShadow:
-            '0 0 10px 3px rgba(56, 189, 248, 0.75), 0 0 22px 6px rgba(37, 99, 235, 0.4)',
-        }}
-      />
+      <div className="relative flex items-center justify-center w-[30px] h-[30px] rounded-full bg-gradient-to-tr from-[#1e3a8a] via-[#3b82f6] to-[#38bdf8] z-10">
+        
+        {/* Inner white circle */}
+        <div className="relative flex items-center justify-center w-[22px] h-[22px] bg-gradient-to-b from-white to-[#f8fafc] rounded-full shadow-[inset_0_1px_3px_rgba(0,0,0,0.08),_0_1px_2px_rgba(0,0,0,0.15)] z-20">
+          <span className="text-[#1e40af] text-[11px] font-medium tracking-tight leading-none pt-[1px]" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+            {numberStr}
+          </span>
+        </div>
+
+        {/* Triangle arrow pointing right */}
+        <div
+          className="absolute -right-[6px] w-[11px] h-[14px] z-0"
+          style={{
+            clipPath: 'polygon(0 0, 100% 50%, 0 100%)',
+            background: 'linear-gradient(to bottom right, #38bdf8, #0ea5e9)',
+            top: '50%',
+            transform: 'translateY(-50%)',
+          }}
+        />
+      </div>
     </div>
   )
 }

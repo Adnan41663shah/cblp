@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
+import { FaInstagram, FaLinkedin, FaFacebook } from 'react-icons/fa'
 import logoImg from '../assets/logo.webp'
+import CloudblitzShineText from './CloudblitzShineText'
 import {
   CAMPUS_BRANCHES,
   DATA_SCIENCE_LINKS,
@@ -78,35 +80,20 @@ export default function Footer() {
       />
 
       <div className="relative mx-auto max-w-6xl px-4 pt-12 pb-[calc(2rem+var(--mobile-sticky-cta-height))] sm:px-6 sm:pb-10 sm:pt-14 lg:pt-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-8 lg:gap-10 items-start">
-          <div className="col-span-1 sm:col-span-2 lg:col-span-4 space-y-4 sm:space-y-5">
-            <a
-              href="https://cloudblitz.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center transition-transform duration-300 hover:scale-[1.02]"
-            >
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6 md:gap-8 text-center md:text-left">
+          
+          {/* Left Side: Logo + Email/Phone */}
+          <div className="flex flex-col items-center md:items-start space-y-4">
+            <Link to="/" className="inline-block transition-transform hover:scale-[1.02]">
               <img
                 src={logoImg}
                 alt="Cloudblitz"
                 className="h-7 sm:h-8 w-auto object-contain"
                 loading="lazy"
               />
-            </a>
-
-            <p className="text-[12px] sm:text-[13px] text-[#9ca3af] leading-relaxed font-medium max-w-md">
-              Cloudblitz is a premium professional education platform delivering hands-on, live
-              interactive training pathways in Cloud Computing, DevOps Engineering, Data Science, and
-              Machine Learning.
-            </p>
-
-            <div className="text-[11px] sm:text-[12px] text-[#6b7280] space-y-2 leading-relaxed">
-              <p>
-                <span className="text-[#9ca3af]">Address:</span>{' '}
-                2nd Floor, Dev heights, Lane Ring Road, above Carat, Pratap Nagar Square, Tatya
-                Tope Nagar, Pratap Nagar, Nagpur, Maharashtra 440022
-              </p>
-              <p>
+            </Link>
+            <div className="text-[13px] sm:text-[14px] text-[#6b7280] flex flex-wrap justify-center md:justify-start gap-x-4 sm:gap-x-6 gap-y-2">
+              <span>
                 <span className="text-[#9ca3af]">Email:</span>{' '}
                 <a
                   href="mailto:info@cloudblitz.in"
@@ -114,8 +101,8 @@ export default function Footer() {
                 >
                   info@cloudblitz.in
                 </a>
-              </p>
-              <p>
+              </span>
+              <span>
                 <span className="text-[#9ca3af]">Phone:</span>{' '}
                 <a
                   href="tel:+919834887259"
@@ -123,64 +110,87 @@ export default function Footer() {
                 >
                   +91 98348 87259
                 </a>
-              </p>
+              </span>
             </div>
           </div>
 
-          <div className="col-span-1 lg:col-span-2">
-            <FooterLinkColumn
-              title="DevOps Pathway"
-              links={DEVOPS_LINKS}
-              hoverClass="hover:text-[#ff8a5c]"
-            />
+          {/* Right Side: Address */}
+          <div className="text-[13px] sm:text-[14px] text-[#6b7280] leading-relaxed max-w-sm md:text-left pt-1">
+            <p>
+              <span className="text-[#9ca3af]">Address:</span>{' '} <br />
+              2nd Floor, Dev heights, Lane Ring Road, above Carat, Pratap Nagar Square, Tatya
+              Tope Nagar, Pratap Nagar, Nagpur, Maharashtra 440022
+            </p>
           </div>
 
-          <div className="col-span-1 lg:col-span-2">
-            <FooterLinkColumn
-              title="Data Science Pathway"
-              links={DATA_SCIENCE_LINKS}
-              hoverClass="hover:text-[#c4b5fd]"
-            />
-          </div>
-
-          <div className="col-span-1 sm:col-span-2 lg:col-span-4 space-y-3 sm:space-y-4 min-w-0">
-            <h4 className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.08em] text-white">
-              Our Campuses
-            </h4>
-            <ul className="grid grid-cols-2 min-[400px]:grid-cols-2 gap-x-6 gap-y-2.5">
-              {CAMPUS_BRANCHES.map((campus) => (
-                <CampusItem key={campus.name} campus={campus} />
-              ))}
-            </ul>
-          </div>
         </div>
 
         <div className="mt-12 sm:mt-14 pt-6 sm:pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-[#6b7280]">
           <p className="text-center sm:text-left">
-            © {currentYear} CLOUDBLITZ Academic Networks. All rights reserved.
+            © 2019 - {currentYear} CloudBlitz | Powered by Greamio. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-5 sm:gap-x-6 gap-y-2">
             <a
-              href="https://cloudblitz.in/terms"
+              href="https://www.instagram.com/cloudblitz.ai/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#ff8a5c] transition-colors"
+              aria-label="Instagram"
+              className="text-[#9ca3af] hover:text-[#ff8a5c] transition-colors"
             >
-              Terms of Service
+              <FaInstagram className="w-[24px] h-[24px]" />
             </a>
             <a
-              href="https://cloudblitz.in/privacy"
+              href="https://www.linkedin.com/company/cloudblitz/posts/?feedView=all"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#ff8a5c] transition-colors"
+              aria-label="LinkedIn"
+              className="text-[#9ca3af] hover:text-[#ff8a5c] transition-colors"
             >
-              Privacy Policy
+              <FaLinkedin className="w-[24px] h-[24px]" />
             </a>
-            
+            <a
+              href="https://www.facebook.com/search/top?q=cloudblitz"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="text-[#9ca3af] hover:text-[#ff8a5c] transition-colors"
+            >
+              <FaFacebook className="w-[24px] h-[24px]" />
+            </a>
           </div>
         </div>
+
+        {/* Important Links Section */}
+        <div className="mt-10 sm:mt-12 pt-8 sm:pt-10">
+          <h3 className="text-white font-bold text-[18px] sm:text-[20px] mb-8 sm:mb-10">Important Links</h3>
+          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12">
+            <div className="lg:w-[280px] flex-shrink-0">
+              <span className="text-white font-bold text-[14px] sm:text-[15px]">For working professionals & students</span>
+            </div>
+            <div className="flex-1">
+              <div className="flex flex-col space-y-3 sm:space-y-4">
+                {[
+                  { name: 'Cloud DevOps Engineering Course with AI', url: 'https://cloudblitz.in/courses/cloud-devops-engineering-ai' },
+                  { name: 'Integrated Full Stack with Cloud DevOps Engineering course', url: 'https://cloudblitz.in/courses/integrated-fullstack-cloud-devops-ai' },
+                  { name: 'Expert in Data Science and Analytics with AI', url: 'https://cloudblitz.in/courses/expert-data-science-analytics-ai' },
+                  { name: 'Expert in Digital Marketing with AI', url: 'https://cloudblitz.in/courses/expert-digital-marketing-ai' },
+                  { name: 'Ultimate Cloud Architect: AWS, Azure & GCP Certification Training', url: 'https://cloudblitz.in/courses/ultimate-cloud-architect' },
+                  { name: 'Generative AI Engineering Program – LangChain to Agentic AI', url: 'https://cloudblitz.in/courses/generative-ai-engineering-langchain' }
+                ].map((link, linkIdx) => (
+                  <div key={linkIdx}>
+                    <a href={link.url} className="text-[#c5cdd8] text-[11px] sm:text-[13px] underline decoration-white/[0.5] underline-offset-4 hover:decoration-white hover:text-white transition-all inline-block">
+                      {link.name}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+      <CloudblitzShineText />
     </footer>
   )
 }

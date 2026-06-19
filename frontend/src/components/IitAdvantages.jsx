@@ -1,6 +1,5 @@
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import { iitAdvantagesContent } from '../data/iitAdvantages'
-import CurriculumDownloadButtons from './CurriculumDownloadButtons'
 import GlowBullet from './GlowBullet'
 
 const SLIDE_INTERVAL_MS = 3000
@@ -112,7 +111,7 @@ function HighlightList({ items }) {
         <div key={item}>
           <div className="flex items-center gap-2.5 sm:gap-3 py-3 sm:py-3.5">
             <div className="scale-[0.82] sm:scale-[0.88] origin-left flex-shrink-0">
-              <GlowBullet />
+              <GlowBullet index={index} />
             </div>
             <p className="text-white/90 text-sm sm:text-[14px] leading-snug">
               {item}
@@ -152,8 +151,6 @@ export default function IitAdvantages({ courseKey = 'data-science' }) {
           </div>
         </div>
       </div>
-
-      <CurriculumDownloadButtons className="mt-10 sm:mt-12 lg:mt-14" />
     </section>
   )
 }

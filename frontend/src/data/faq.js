@@ -7,7 +7,7 @@ export const getFaqItems = (courseKey) => [
         : 'What are the prerequisites for Data Science & AI courses?',
     answer:
       courseKey === 'devops'
-        ? 'Basic knowledge of IT concepts and familiarity with operating systems is recommended. However, we offer beginner-friendly courses that start from the fundamentals.'
+        ? 'Basic knowledge of IT concepts and familiarity with operating systems is recommended. However, we offer beginner friendly courses that start from the fundamentals.'
         : 'No prior coding, math, or statistics background is required. The program is beginner-friendly and starts from the absolute fundamentals of Python programming and basic mathematics.',
     category: 'general',
   },

@@ -58,7 +58,7 @@ export const REVIEWS = [
     id: 'aniruddha-tiwari',
     name: 'Aniruddha Tiwari',
     role: 'Software Engineer at GlobalLogic',
-    package: '₹25L',
+    package: '₹25 LPA',
     batch: '2023 Batch',
     text: 'CloudBlitz helped me transition from a traditional IT role to a cloud specialist. The live labs and mentorship made the difference.',
     image: aniruddhaAvatar,

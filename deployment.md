@@ -49,7 +49,7 @@ cp .env.example .env
 ```
 Open [backend/.env](file:///m:/Greamio_work/cblp/backend/.env) and configure:
 ```ini
-PORT=3001
+PORT=3005
 NODE_ENV=development
 
 # CloudBlitz CRM URL (no trailing slash)
@@ -85,13 +85,13 @@ To launch both services:
    ```bash
    npm run dev
    ```
-   *Expected output:* Server running on port `3001` in development mode.
+   *Expected output:* Server running on port `3005` in development mode.
 
 2. **Start the Frontend development server** (in `frontend/` directory):
    ```bash
    npm run dev
    ```
-   *Expected output:* Vite server listening on `http://localhost:5173`. Any requests to `/api/*` will automatically proxy to `http://localhost:3001/api/*`.
+   *Expected output:* Vite server listening on `http://localhost:5173`. Any requests to `/api/*` will automatically proxy to `http://localhost:3005/api/*`.
 
 ---
 
@@ -137,7 +137,7 @@ The backend is a Node.js/Express application. You can host it on platforms like 
    pm2 save
    pm2 startup
    ```
-5. Set up an Nginx reverse proxy to forward traffic to `http://localhost:3001` (or whatever `PORT` you configured).
+5. Set up an Nginx reverse proxy to forward traffic to `http://localhost:3005` (or whatever `PORT` you configured).
 
 ---
 

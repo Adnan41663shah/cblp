@@ -46,7 +46,7 @@ function CtaVisual() {
       <img
         src={boyCtaImage}
         alt="Career counsellor ready to help"
-        className="w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[440px] xl:max-w-[460px] h-auto object-contain"
+        className="w-full h-full object-cover max-h-[600px]"
         loading="lazy"
       />
     </div>

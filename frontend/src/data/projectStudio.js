@@ -7,7 +7,7 @@ export const projectStudioContent = {
     eyebrow: 'Projects, not just lectures',
     heading: 'Build the projects that get you hired',
     subhead:
-      'Every project mirrors a real business problem — you ship work that looks like the job, and walk away with a portfolio that maps to in-demand roles.',
+      'Every project mirrors a real business problem you ship work that looks like the job, and walk away with a portfolio that maps to in-demand roles.',
     projects: [
       {
         id: 'fraud-detection',
@@ -26,7 +26,7 @@ export const projectStudioContent = {
         id: 'churn-prediction',
         title: 'Customer Churn Prediction',
         tag: 'Predictive Analytics',
-        summary: 'Predict which customers are about to leave — before they do.',
+        summary: 'Predict which customers are about to leave before they do.',
         steps: [
           { label: 'Problem', detail: 'Companies lose customers without warning.' },
           { label: 'Data', detail: 'Behavioural and subscription signals.' },
@@ -94,7 +94,7 @@ export const projectStudioContent = {
     eyebrow: 'Projects, not just lectures',
     heading: 'Build the production systems that get you hired',
     subhead:
-      'Every project mirrors real production infrastructure — you ship work that looks like the job, and walk away with a portfolio that maps to in-demand roles.',
+      'Every project mirrors real production infrastructure you ship work that looks like the job, and walk away with a portfolio that maps to in-demand roles.',
     projects: [
       {
         id: 'kubernetes-orchestration',

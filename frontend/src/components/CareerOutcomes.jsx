@@ -1,4 +1,4 @@
-import { TbQuote, TbTrendingUp } from 'react-icons/tb'
+import { TbTrendingUp, TbUser, TbBolt, TbStar } from 'react-icons/tb'
 import { courses } from '../data/courses'
 import { REVIEWS } from '../data/testimonials'
 import { useInView } from '../hooks/useInView'
@@ -92,43 +92,134 @@ function KpiPanel({ summary, topName }) {
 function FeaturedSpotlight({ alum }) {
   const [ref, inView] = useInView({ threshold: 0.3 })
 
+  const highlightText = (text) => {
+    if (text.includes('made the difference.')) {
+      const parts = text.split('made the difference.')
+      return (
+        <>
+          {parts[0]}
+          <span className="text-[#ff6b35]">made the difference.</span>
+          {parts[1]}
+        </>
+      )
+    }
+    return text
+  }
+
   return (
     <div
       ref={ref}
-      className={`spotlight-panel reveal ${inView ? 'reveal--in' : ''} grid grid-cols-1 gap-6 p-6 sm:p-8 lg:grid-cols-[auto_1fr] lg:gap-9 lg:p-10`}
+      className={`relative rounded-[20px] border border-[#2a2a2a] bg-[#141414] overflow-hidden p-5 sm:p-6 lg:p-8 reveal ${
+        inView ? 'reveal--in' : ''
+      }`}
     >
-      <div className="flex items-center gap-4 lg:flex-col lg:items-start lg:gap-5">
-        <div className="relative shrink-0">
-          <img
-            src={alum.image}
-            alt={alum.name}
-            className="h-16 w-16 rounded-2xl border border-white/15 object-cover sm:h-20 sm:w-20 lg:h-24 lg:w-24"
-            loading="lazy"
+      {/* Right Edge Glow */}
+      <div className="absolute right-0 top-0 bottom-0 w-[4px] bg-gradient-to-b from-[#ff8a5c]/0 via-[#ff6b35] to-[#ff8a5c]/0 shadow-[-10px_0_40px_10px_rgba(255,107,53,0.3)]"></div>
+
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
+        
+        {/* Left Column */}
+        <div className="relative flex flex-col flex-shrink-0 w-full lg:w-auto z-10">
+          
+          {/* Dotted Background */}
+          <div 
+            className="absolute -inset-x-8 -top-8 bottom-12 z-[-1] opacity-30 pointer-events-none"
+            style={{
+              backgroundImage: 'radial-gradient(circle, #ff6b35 1.5px, transparent 1.5px)',
+              backgroundSize: '16px 16px',
+              maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
+              WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)'
+            }}
           />
-          <span className="absolute -right-2 -top-2 rounded-full border border-[#ff6b35]/40 bg-black px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[#ff8a5c]">
-            Top outcome
-          </span>
-        </div>
-        <div className="lg:mt-1">
-          <p className="text-lg font-bold leading-tight text-white">{alum.name}</p>
-          <p className="mt-0.5 text-[13px] text-[#8b95a5]">{alum.role}</p>
-          <div className="mt-3 flex items-baseline gap-2">
-            <AnimatedStatValue
-              value={alum.package}
-              active={inView}
-              className="text-3xl font-extrabold leading-none tracking-tight text-[#ff8a5c] sm:text-4xl"
-            />
-            <span className="text-[12px] text-[#8b95a5]">{alum.batch}</span>
+
+          <div className="flex flex-row items-center gap-4 sm:gap-5 mb-5">
+            {/* Profile Image with Gradient Background */}
+            <div className="flex-shrink-0 w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] rounded-[20px] bg-gradient-to-tr from-[#ff6b35] to-[#ffba7a] p-[2px]">
+              <img
+                src={alum.image}
+                alt={alum.name}
+                className="w-full h-full object-cover rounded-[18px] bg-[#1a1a1a]"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <h3 className="text-white font-bold text-[16px] sm:text-lg leading-tight mb-1.5">{alum.name}</h3>
+              <p className="text-[#8b95a5] text-[12px] sm:text-[13px] leading-snug">
+                {alum.role.split(' at ').map((part, i, arr) => (
+                  <span key={i}>
+                    {part}
+                    {i < arr.length - 1 && (
+                      <>
+                        {' at '}
+                        <br />
+                      </>
+                    )}
+                  </span>
+                ))}
+              </p>
+            </div>
+          </div>
+
+          <div className="w-8 h-[2px] bg-[#ff6b35] mb-5"></div>
+
+          {/* Salary Box */}
+          <div className="rounded-xl p-3 flex items-center gap-3 max-w-xs">
+            <span className="text-3xl font-extrabold text-[#ff6b35]">
+              {alum.package}
+            </span>
+            <div className="flex flex-col">
+              <span className="text-[#e2e8f0] text-[13px] font-medium leading-tight">2023 batch</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <blockquote className="relative flex items-center">
-        <TbQuote className="absolute -left-1 -top-2 h-8 w-8 text-white/[0.08] lg:h-10 lg:w-10" aria-hidden="true" />
-        <p className="relative text-[17px] font-medium leading-relaxed text-[#e2e8f0] sm:text-xl lg:text-[22px] lg:leading-relaxed">
-          &ldquo;{alum.text}&rdquo;
-        </p>
-      </blockquote>
+        {/* Right Column */}
+        <div className="flex flex-col justify-center flex-1">
+          {/* Quote Text */}
+          <div className="mb-6 lg:mb-8">
+            <p className="text-[#e2e8f0] text-lg sm:text-xl lg:text-[20px] font-normal leading-relaxed lg:leading-[1.6]">
+              &ldquo;{highlightText(alum.text)}&rdquo;
+            </p>
+          </div>
+
+          <div className="hidden sm:block h-[1px] bg-white/[0.08] mb-5 lg:mb-6"></div>
+
+          {/* Features */}
+          <div className="hidden sm:grid sm:grid-cols-3 gap-4 lg:gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full border border-[#ff6b35]/30 flex items-center justify-center flex-shrink-0">
+                <TbUser className="w-5 h-5 text-[#ff6b35]" />
+              </div>
+              <div>
+                <p className="text-[#e2e8f0] font-semibold text-[12px]">Career Transition</p>
+                <p className="text-[#8b95a5] text-[11px] mt-0.5">Achieved</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full border border-[#ff6b35]/30 flex items-center justify-center flex-shrink-0">
+                <TbBolt className="w-5 h-5 text-[#ff6b35]" />
+              </div>
+              <div>
+                <p className="text-[#e2e8f0] font-semibold text-[12px]">Hands-on Learning</p>
+                <p className="text-[#8b95a5] text-[11px] mt-0.5">Live Labs</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full border border-[#ff6b35]/30 flex items-center justify-center flex-shrink-0">
+                <TbStar className="w-5 h-5 text-[#ff6b35]" />
+              </div>
+              <div>
+                <p className="text-[#e2e8f0] font-semibold text-[12px]">Expert Mentorship</p>
+                <p className="text-[#8b95a5] text-[11px] mt-0.5">Personalized Support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   )
 }
@@ -204,7 +295,7 @@ export default function CareerOutcomes({ courseKey = 'data-science' }) {
         Careers, measurably transformed
       </h2>
       <p className="mb-8 max-w-xl text-[13px] leading-relaxed text-[#8b95a5] sm:mb-10 sm:text-[15px]">
-        The full spread of where our alumni landed — real roles, real companies, real CTCs.
+        The full spread of where our alumni landed real roles, real companies, real CTCs.
       </p>
 
       <KpiPanel summary={summary} topName={featured.name.split(' ')[0]} />

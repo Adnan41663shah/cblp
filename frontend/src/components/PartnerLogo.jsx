@@ -31,8 +31,14 @@ const IMAGE_LOGO_CLASS =
 // ─── Per-logo size is now controlled via `logoScale` in placementPartnersList.js ───
 // 1.0 = normal, 1.5 = 50% bigger, 2.0 = double, etc.
 function getLogoStyle(partner) {
-  const scale = partner.logoScale ?? 1
-  return scale !== 1 ? { transform: `scale(${scale})` } : undefined
+  const style = {}
+  if (partner.logoScale && partner.logoScale !== 1) {
+    style.transform = `scale(${partner.logoScale})`
+  }
+  if (partner.marginLeft) {
+    style.marginLeft = partner.marginLeft
+  }
+  return Object.keys(style).length > 0 ? style : undefined
 }
 
 function domainLogoSources(domain) {

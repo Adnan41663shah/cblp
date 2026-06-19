@@ -88,7 +88,7 @@ export default function ConsultationPopup({
     setSubmitError('')
 
     try {
-      await submitLeadForm({ name, phone, careerGoal: goal, source, course: courseKey })
+      await submitLeadForm({ name, phone, careerGoal: goal, source, course: courseKey, experience: 'Others' })
       setStatus('success')
       onConverted?.()
       window.setTimeout(() => {

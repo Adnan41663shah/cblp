@@ -6,11 +6,22 @@ const MARQUEE_DURATION_S = 36
 function ExpertSessionCard({ expert }) {
   return (
     <article className="expert-session-card flex-shrink-0 w-[220px] sm:w-[248px] lg:w-[264px] rounded-[18px] sm:rounded-[20px] border border-white/[0.08] bg-[#141414] p-3.5 sm:p-4">
-      <div className="overflow-hidden rounded-[12px] sm:rounded-[14px] border border-white/[0.14] bg-[#1a1a1a]">
+      <div className="relative overflow-hidden rounded-[12px] sm:rounded-[14px] border border-white/[0.14] bg-[#1a1a1a]">
+        {/* Dotted Background */}
+        <div 
+          className="absolute inset-0 z-0 opacity-30 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, #ff6b35 1px, transparent 1px)',
+            backgroundSize: '14px 14px',
+            maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)'
+          }}
+        />
+        
         <img
           src={expert.image}
           alt={`${expert.name} portrait`}
-          className="w-full aspect-square object-cover"
+          className="relative z-10 w-full aspect-square object-cover"
           loading="lazy"
         />
       </div>
@@ -35,7 +46,7 @@ function ExpertHighlightList({ items }) {
         <div key={item}>
           <div className="flex items-center gap-2.5 sm:gap-3 py-3 sm:py-3.5">
             <div className="scale-[0.82] sm:scale-[0.88] origin-left flex-shrink-0">
-              <GlowBullet />
+              <GlowBullet index={index} />
             </div>
             <p className="text-white/90 font-medium text-sm sm:text-[14px] leading-snug">{item}</p>
           </div>

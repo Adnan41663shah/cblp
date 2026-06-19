@@ -23,7 +23,8 @@ export const PLACEMENT_PARTNERS = [
     icon: 'SiInfosys',
     color: '#007CC3',
     domain: 'infosys.com',
-    logoScale: 1.8,
+    logoScale: 2.4,
+    marginLeft: '1.25rem',
   },
   {
     id: 'wipro',

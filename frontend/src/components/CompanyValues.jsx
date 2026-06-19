@@ -1,6 +1,5 @@
 import { Fragment, useId } from 'react'
 import AnimatedStatValue from './AnimatedStatValue'
-import CurriculumDownloadButtons from './CurriculumDownloadButtons'
 import GlowBullet from './GlowBullet'
 import { prefersReducedMotion, useInView } from '../hooks/useInView'
 
@@ -204,7 +203,7 @@ export default function CompanyValues({ content }) {
             {content.points.map((point, index) => (
               <div key={point.title}>
                 <div className="flex items-start gap-3 sm:gap-4 py-6 sm:py-7">
-                  <GlowBullet />
+                  <GlowBullet index={index} />
                   <div className="flex flex-col gap-1.5 pt-1.5">
                     <h3 className="text-white font-bold text-[13.5px] sm:text-lg leading-snug">
                       {point.title}
@@ -223,8 +222,6 @@ export default function CompanyValues({ content }) {
 
           <DemandChart chart={content.chart} />
         </div>
-
-        <CurriculumDownloadButtons className="mt-10 sm:mt-12 lg:mt-14" />
       </div>
     </section>
   )
