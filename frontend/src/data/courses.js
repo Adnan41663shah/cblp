@@ -5,7 +5,6 @@ import {
   SiGithubactions,
   SiGooglecolab,
   SiJenkins,
-  SiJupyter,
   SiKubernetes,
   SiLinux,
   SiPandas,
@@ -24,14 +23,22 @@ export const courses = {
     title: 'Data Science & AI Program by Cloudblitz',
     pageTitle: 'Data Science & AI | Cloudblitz',
     heading: 'Become an Industry‑Ready Data Scientist & AI Expert.',
+    hero: {
+      eyebrow: 'In collaboration with IIT(BHU) Varanasi',
+      headlineLead: 'Become the',
+      headlineRotators: ['Data Scientist', 'AI Engineer', 'ML Engineer'],
+      headlineTrail: 'top companies hire.',
+      subhead:
+        'An IIT(BHU) Varanasi–backed program with real-world projects, 1:1 industry mentorship, and dedicated placement support, engineered to turn you into the talent companies compete for.',
+      outcomeRole: 'Data Scientist',
+    },
     bullets: [
       'Designed for professionals to stand out in data science & AI job market',
       'AI-infused curriculum that helps you master 12+ real-world projects and workflows',
     ],
-    toolsHeading: 'Master 20+ data science & AI tools',
+    toolsHeading: 'Master 20+ Data Science & AI tools',
     tools: [
       { icon: SiPython, label: 'Python', color: '#3776AB' },
-      { icon: SiJupyter, label: 'Jupyter', color: '#F37626' },
       { icon: SiGooglecolab, label: 'Colab', color: '#F9AB00' },
       { icon: SiPandas, label: 'Pandas', color: '#150458' },
       { icon: SiPytorch, label: 'PyTorch', color: '#EE4C2C' },
@@ -45,7 +52,7 @@ export const courses = {
         { value: '6 months', label: 'Intensive job bootcamp' },
         { value: '8.2 LPA', label: 'Average CTC in placements' },
         { value: '128% avg hike', label: 'After program completion' },
-        { value: '80K+', label: 'Students enrolled' },
+        { value: '10K+', label: 'Students enrolled' },
       ],
       heading: 'AI is redefining the future of data science jobs',
       points: [
@@ -78,11 +85,20 @@ export const courses = {
     title: 'Cloud DevOps Program by Cloudblitz',
     pageTitle: 'Cloud DevOps | Cloudblitz',
     heading: 'Become a Production‑Ready Cloud DevOps Engineer.',
+    hero: {
+      eyebrow: 'In collaboration with IIT(BHU) Varanasi',
+      headlineLead: 'Become the',
+      headlineRotators: ['DevOps Engineer', 'Cloud Engineer', 'SRE'],
+      headlineTrail: 'top companies hire.',
+      subhead:
+        'An IIT(BHU) Varanasi–backed program with hands-on production labs, 1:1 industry mentorship, and dedicated placement support, engineered to turn you into the engineer companies compete for.',
+      outcomeRole: 'DevOps Engineer',
+    },
     bullets: [
       'Built for professionals ready to deploy, scale, and automate in the cloud',
       'Hands-on labs covering CI/CD, Kubernetes, and production infrastructure',
     ],
-    toolsHeading: 'Master 20+ DevOps & cloud tools',
+    toolsHeading: 'Master 20+ DevOps & Cloud tools',
     tools: [
       { icon: SiDocker, label: 'Docker', color: '#2496ED' },
       { icon: SiKubernetes, label: 'Kubernetes', color: '#326CE5' },

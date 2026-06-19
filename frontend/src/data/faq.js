@@ -1,9 +1,14 @@
-export const FAQ_ITEMS = [
+export const getFaqItems = (courseKey) => [
   {
     id: 1,
-    question: 'What are the prerequisites for cloud Devops courses?',
+    question:
+      courseKey === 'devops'
+        ? 'What are the prerequisites for cloud DevOps courses?'
+        : 'What are the prerequisites for Data Science & AI courses?',
     answer:
-      'Basic knowledge of IT concepts and familiarity with operating systems is recommended. However, we offer beginner-friendly courses that start from the fundamentals.',
+      courseKey === 'devops'
+        ? 'Basic knowledge of IT concepts and familiarity with operating systems is recommended. However, we offer beginner friendly courses that start from the fundamentals.'
+        : 'No prior coding, math, or statistics background is required. The program is beginner-friendly and starts from the absolute fundamentals of Python programming and basic mathematics.',
     category: 'general',
   },
   {
@@ -24,7 +29,9 @@ export const FAQ_ITEMS = [
     id: 4,
     question: 'What certifications will I receive?',
     answer:
-      "Upon completion, you'll receive our institute certificate and guidance to prepare for official cloud provider certifications like AWS, Azure, and GCP.",
+      courseKey === 'devops'
+        ? "Upon completion, you'll receive our course completion certificate and guidance to prepare for official cloud certifications like AWS (SysOps/Developer/Solutions Architect) and Kubernetes (CKA/CKAD)."
+        : "Upon completion, you'll receive our course completion certificate and guidance to prepare for leading industry-recognized certifications in Data Science, Machine Learning, and AI.",
     category: 'general',
   },
   {
@@ -42,3 +49,6 @@ export const FAQ_ITEMS = [
     category: 'pricing',
   },
 ]
+
+export const FAQ_ITEMS = getFaqItems('data-science')
+

@@ -189,7 +189,7 @@ export default function FeatureCarousel({ courseKey = 'data-science' }) {
         <div className="sections-noise absolute inset-0" />
       </div>
 
-      <h2 className="relative z-10 text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] text-center leading-tight tracking-normal px-4 sm:px-6 pt-10 sm:pt-14 pb-4 lg:pb-8 mb-4 sm:mb-6">
+      <h2 className="relative z-10 text-white font-semibold text-[16px] sm:text-[28px] lg:text-[32px] text-center leading-tight tracking-normal px-4 sm:px-6 pt-10 sm:pt-14 pb-4 lg:pb-8 mb-4 sm:mb-6">
         {heading}
       </h2>
 

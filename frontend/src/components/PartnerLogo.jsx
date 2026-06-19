@@ -25,6 +25,22 @@ const ICON_MAP = {
 const LOGO_CLASS =
   'h-9 sm:h-10 lg:h-11 w-auto max-w-[110px] sm:max-w-[130px] lg:max-w-[150px] object-contain object-center select-none'
 
+const IMAGE_LOGO_CLASS =
+  'h-6 sm:h-7 lg:h-8 w-auto max-w-[110px] sm:max-w-[130px] lg:max-w-[150px] object-contain object-center select-none'
+
+// ─── Per-logo size is now controlled via `logoScale` in placementPartnersList.js ───
+// 1.0 = normal, 1.5 = 50% bigger, 2.0 = double, etc.
+function getLogoStyle(partner) {
+  const style = {}
+  if (partner.logoScale && partner.logoScale !== 1) {
+    style.transform = `scale(${partner.logoScale})`
+  }
+  if (partner.marginLeft) {
+    style.marginLeft = partner.marginLeft
+  }
+  return Object.keys(style).length > 0 ? style : undefined
+}
+
 function domainLogoSources(domain) {
   const siteUrl = `https://${domain}`
 
@@ -43,7 +59,6 @@ function DomainLogo({ partner }) {
     return (
       <span
         className="text-white/90 font-semibold text-sm sm:text-base tracking-tight whitespace-nowrap"
-        title={partner.displayName}
       >
         {partner.displayName}
       </span>
@@ -54,10 +69,10 @@ function DomainLogo({ partner }) {
     <img
       src={sources[sourceIndex]}
       alt={partner.logoAlt}
-      title={partner.displayName}
       loading="lazy"
       decoding="async"
-      className={LOGO_CLASS}
+      className={IMAGE_LOGO_CLASS}
+      style={getLogoStyle(partner)}
       draggable="false"
       onError={() => {
         if (sourceIndex < sources.length - 1) {
@@ -74,7 +89,6 @@ function LocalLogoFallback({ partner }) {
   return (
     <span
       className="text-white/90 font-semibold text-sm sm:text-base tracking-tight whitespace-nowrap"
-      title={partner.displayName}
     >
       {partner.displayName}
     </span>
@@ -92,10 +106,10 @@ function LocalLogo({ partner }) {
     <img
       src={partner.logoSrc}
       alt={partner.logoAlt}
-      title={partner.displayName}
       loading="lazy"
       decoding="async"
-      className={LOGO_CLASS}
+      className={IMAGE_LOGO_CLASS}
+      style={getLogoStyle(partner)}
       draggable="false"
       onError={() => setFailed(true)}
     />
@@ -109,9 +123,8 @@ export default function PartnerLogo({ partner }) {
     return (
       <Icon
         className={`${LOGO_CLASS} flex-shrink-0`}
-        style={{ color: partner.color ?? '#ffffff' }}
+        style={{ color: partner.color ?? '#ffffff', ...getLogoStyle(partner) }}
         aria-label={partner.logoAlt}
-        title={partner.displayName}
       />
     )
   }

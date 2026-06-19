@@ -5,6 +5,7 @@ import { getMainNavHeight, getScrollOffset } from '../utils/navHeights'
 const navItems = [
   { id: 'curriculum', label: 'Curriculum', targetId: 'curriculum' },
   { id: 'placements', label: 'Placements', targetId: 'placements' },
+  { id: 'outcomes', label: 'Outcomes', targetId: 'outcomes' },
   { id: 'expert-sessions', label: 'Expert Sessions', targetId: 'expert-sessions' },
   { id: 'testimonials', label: 'Testimonials', targetId: 'testimonials' },
   { id: 'faqs', label: 'FAQs', targetId: 'faqs' },
@@ -55,7 +56,7 @@ export default function SectionSubNav() {
     let ticking = false
 
     const updateActiveSection = () => {
-      const activationLine = getScrollOffset() + 48
+      const activationLine = getScrollOffset() + 120
       let nextActive = navItems[0].id
 
       // Walk page order bottom-up so the deepest reached section wins
@@ -117,7 +118,7 @@ export default function SectionSubNav() {
                       <button
                         type="button"
                         onClick={() => scrollToSection(item.targetId, item.id)}
-                        className={`relative cursor-pointer whitespace-nowrap pb-1 text-[11px] font-medium transition-colors duration-200 sm:pb-1.5 sm:text-[13px] lg:text-sm ${
+                        className={`relative cursor-pointer whitespace-nowrap pb-1 text-[11px] font-medium transition-colors duration-200 sm:pb-1.5 sm:text-[13px] lg:text-[16px] ${
                           isActive
                             ? 'font-semibold text-white'
                             : 'text-[#8a8a8a] hover:text-[#b0b0b0]'

@@ -35,7 +35,7 @@ function SyllabusCard({ label, weeks, courseKey, onReadMore }) {
           {rows.map((row) => (
             <div
               key={`${row.type}-${row.text}`}
-              className={`px-5 sm:px-6 lg:px-7 py-3.5 sm:py-[10px] border-b border-white/[0.08] ${
+              className={`px-5 sm:px-6 lg:px-7 py-[5px] border-b border-white/[0.08] ${
                 row.type === 'week'
                   ? 'text-white font-bold text-sm sm:text-[15px] leading-snug'
                   : 'text-white/70 font-normal text-[12px] sm:text-[13px] leading-relaxed'
@@ -89,7 +89,7 @@ function FeatureImageCard({ featureCard }) {
             <h3 className="text-white font-semibold text-sm sm:text-base leading-snug max-w-[220px]">
               {featureCard.title}
             </h3>
-            <p className="text-[#a1a1aa] text-[10px] sm:text-[11px] mt-1 leading-relaxed max-w-[210px]">
+            <p className="text-[#a1a1aa] text-[10px] sm:text-[14px] mt-1 leading-relaxed max-w-[210px]">
               {featureCard.subtitle}
             </p>
           </div>
@@ -101,7 +101,7 @@ function FeatureImageCard({ featureCard }) {
 
 function PartnerLogos({ partners }) {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-12 lg:gap-14">
+    <div className="flex flex-wrap items-center justify-center lg:justify-start gap-10 sm:gap-12 lg:gap-14">
       {partners.map((partner) => {
         const Icon = partner.icon
 
@@ -132,7 +132,7 @@ export default function CurriculumSection({ courseKey = 'data-science' }) {
   return (
     <section id="syllabus" className="relative z-10 -mt-6 sm:-mt-10 lg:-mt-14 pb-12 sm:pb-16 lg:pb-20 bg-black scroll-mt-24">
       <div className="relative">
-        <h2 className="text-white font-semibold leading-[1.2] tracking-normal mb-6 sm:mb-8 lg:mb-10 lg:mt-8">
+        <h2 className="text-white text-[22px] sm:text-[28px] lg:text-[32px] font-semibold leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10 lg:mt-8">
           {content.heading}
         </h2>
 
@@ -146,15 +146,20 @@ export default function CurriculumSection({ courseKey = 'data-science' }) {
           />
         </div>
 
-        <p className="text-white/90 text-[12px] sm:text-[13px] text-center mt-10 sm:mt-12 lg:mt-14 leading-relaxed">
-          {content.trustLine}
-        </p>
+        <div className="mt-10 sm:mt-12 lg:mt-14 flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-10">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <p className="text-white/90 text-[13px] sm:text-[16px] leading-relaxed">
+              {content.trustLine}
+            </p>
+            <div className="mt-5 sm:mt-6 lg:mt-7">
+              <PartnerLogos partners={content.partners} />
+            </div>
+          </div>
 
-        <div className="mt-5 sm:mt-6 lg:mt-7">
-          <PartnerLogos partners={content.partners} />
+          <div className="flex justify-center lg:justify-end flex-shrink-0">
+            <CurriculumDownloadButtons courseKey={courseKey} />
+          </div>
         </div>
-
-        <CurriculumDownloadButtons className="mt-8 sm:mt-10 lg:mt-12" />
       </div>
 
       {isDownloadModalOpen && (

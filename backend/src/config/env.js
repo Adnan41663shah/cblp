@@ -19,7 +19,7 @@ if (!hasEmailConfig() || !hasCrmConfig()) {
 }
 
 const env = {
-  port: Number(process.env.PORT) || 3001,
+  port: Number(process.env.PORT) || 3005,
   nodeEnv: process.env.NODE_ENV || 'development',
   crmApiUrl: process.env.CRM_API_URL?.trim().replace(/\/$/, '') || null,
   crmRequestTimeoutMs: Number(process.env.CRM_REQUEST_TIMEOUT_MS) || 10000,

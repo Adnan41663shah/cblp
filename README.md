@@ -81,8 +81,8 @@ To get both servers running locally:
    - For detailed credential configuration (CRM endpoints, Gmail App passwords), read the [deployment.md](file:///m:/Greamio_work/cblp/deployment.md) guide.
 
 3. **Run Services**
-   - **Backend**: `npm run dev` (starts on port `3001` with watch mode enabled)
-   - **Frontend**: `npm run dev` (starts on port `5173` with reverse proxy mapping `/api` to port `3001`)
+   - **Backend**: `npm run dev` (starts on port `3005` with watch mode enabled)
+   - **Frontend**: `npm run dev` (starts on port `5173` with reverse proxy mapping `/api` to port `3005`)
 
 ---
 

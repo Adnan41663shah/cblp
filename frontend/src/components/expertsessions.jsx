@@ -6,11 +6,22 @@ const MARQUEE_DURATION_S = 36
 function ExpertSessionCard({ expert }) {
   return (
     <article className="expert-session-card flex-shrink-0 w-[220px] sm:w-[248px] lg:w-[264px] rounded-[18px] sm:rounded-[20px] border border-white/[0.08] bg-[#141414] p-3.5 sm:p-4">
-      <div className="overflow-hidden rounded-[12px] sm:rounded-[14px] border border-white/[0.14] bg-[#1a1a1a]">
+      <div className="relative overflow-hidden rounded-[12px] sm:rounded-[14px] border border-white/[0.14] bg-[#1a1a1a]">
+        {/* Dotted Background */}
+        <div 
+          className="absolute inset-0 z-0 opacity-30 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, #ff6b35 1px, transparent 1px)',
+            backgroundSize: '14px 14px',
+            maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)'
+          }}
+        />
+        
         <img
           src={expert.image}
           alt={`${expert.name} portrait`}
-          className="w-full aspect-square object-cover"
+          className="relative z-10 w-full aspect-square object-cover"
           loading="lazy"
         />
       </div>
@@ -35,7 +46,7 @@ function ExpertHighlightList({ items }) {
         <div key={item}>
           <div className="flex items-center gap-2.5 sm:gap-3 py-3 sm:py-3.5">
             <div className="scale-[0.82] sm:scale-[0.88] origin-left flex-shrink-0">
-              <GlowBullet />
+              <GlowBullet index={index} />
             </div>
             <p className="text-white/90 font-medium text-sm sm:text-[14px] leading-snug">{item}</p>
           </div>
@@ -49,7 +60,7 @@ function ExpertHighlightList({ items }) {
 function BootcampExpertsCard({ content }) {
   return (
     <div className="mt-24 sm:mt-28 lg:mt-32">
-      <h2 className="text-white font-semibold text-[20px] sm:text-[26px] lg:text-[28px] leading-[1.5] tracking-normal mb-6 sm:mb-8 lg:mb-10">
+      <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
         {content.title}
       </h2>
 
@@ -88,10 +99,10 @@ export default function ExpertSessions() {
 
   return (
     <section id="expert-sessions" className="relative scroll-mt-[var(--nav-scroll-offset)] bg-black pt-10 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <p className="text-[#8b95a5] text-[10px] sm:text-[11px] font-semibold tracking-[0.14em] uppercase mb-3 sm:mb-4">
+      <p className="text-[#8b95a5] text-[10px] sm:text-[14px] font-semibold tracking-[0.14em] uppercase mb-3 sm:mb-4">
         {eyebrow}
       </p>
-      <h2 className="text-white font-semibold text-[22px] sm:text-[26px] lg:text-[28px] leading-[1.2] tracking-normal mb-8 sm:mb-10 lg:mb-12">
+      <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
         {title}
       </h2>
 

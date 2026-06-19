@@ -1,12 +1,18 @@
 import { Fragment, useId } from 'react'
-import CurriculumDownloadButtons from './CurriculumDownloadButtons'
+import AnimatedStatValue from './AnimatedStatValue'
 import GlowBullet from './GlowBullet'
+import { prefersReducedMotion, useInView } from '../hooks/useInView'
 
 function StatsBar({ stats }) {
+  const [ref, inView] = useInView({ threshold: 0.4 })
+
   return (
     <div className="hidden sm:block bg-black w-full">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-wrap sm:flex-nowrap items-center justify-center py-3 sm:py-12">
+        <div
+          ref={ref}
+          className="flex flex-wrap sm:flex-nowrap items-center justify-center py-3 sm:py-12"
+        >
           {stats.map((stat, index) => (
             <Fragment key={stat.label}>
               {index > 0 && (
@@ -16,11 +22,16 @@ function StatsBar({ stats }) {
                   aria-hidden="true"
                 />
               )}
-              <div className="w-1/2 sm:flex-1 flex flex-col items-center justify-center text-center px-2 sm:px-3 py-2.5 sm:py-0">
-                <span className="text-white font-bold text-sm sm:text-base lg:text-lg leading-tight tracking-tight">
-                  {stat.value}
-                </span>
-                <span className="text-white/90 text-[9px] sm:text-[10px] mt-0.5 leading-snug">
+              <div
+                className={`reveal ${inView ? 'reveal--in' : ''} w-1/2 sm:flex-1 flex flex-col items-center justify-center text-center px-2 sm:px-3 py-2.5 sm:py-0`}
+                style={{ transitionDelay: `${index * 90}ms` }}
+              >
+                <AnimatedStatValue
+                  value={stat.value}
+                  active={inView}
+                  className="text-white font-bold text-sm sm:text-base lg:text-lg leading-tight tracking-tight"
+                />
+                <span className="text-white/90 text-[9px] sm:text-[16px] mt-0.5 leading-snug">
                   {stat.label}
                 </span>
               </div>
@@ -34,6 +45,8 @@ function StatsBar({ stats }) {
 
 function DemandChart({ chart }) {
   const uid = useId().replace(/:/g, '')
+  const [ref, inView] = useInView({ threshold: 0.35 })
+  const noMotion = prefersReducedMotion()
   const maxHeight = Math.max(...chart.bars.map((bar) => bar.height))
 
   const width = 400
@@ -68,13 +81,15 @@ function DemandChart({ chart }) {
   }
 
   return (
-    <div className="bg-[#121212] rounded-[20px] sm:rounded-[24px] p-5 sm:p-6 lg:p-7 h-full flex flex-col">
+    <div ref={ref} className="bg-[#121212] rounded-[20px] sm:rounded-[24px] p-5 sm:p-6 lg:p-7 h-full flex flex-col">
       <p className="text-[#888888] text-[10px] sm:text-[11px] font-medium tracking-[0.1em] uppercase">
         {chart.label}
       </p>
-      <p className="text-white font-bold text-base sm:text-lg lg:text-xl mt-1.5 mb-5 sm:mb-6">
-        {chart.headline}
-      </p>
+      <AnimatedStatValue
+        value={chart.headline}
+        active={inView}
+        className="block text-white font-bold text-base sm:text-lg lg:text-xl mt-1.5 mb-5 sm:mb-6"
+      />
 
       <div className="flex-1 min-h-[190px] sm:min-h-[210px]">
         <svg
@@ -110,12 +125,20 @@ function DemandChart({ chart }) {
             <path
               d={curvePath(barMetrics[0], barMetrics[1], 12)}
               fill={`url(#${uid}-area-gray)`}
+              style={{
+                opacity: inView ? 1 : 0,
+                transition: noMotion ? 'none' : 'opacity 0.8s ease 0.5s',
+              }}
             />
           )}
           {barMetrics.length > 2 && (
             <path
               d={curvePath(barMetrics[1], barMetrics[2], 18)}
               fill={`url(#${uid}-area-orange)`}
+              style={{
+                opacity: inView ? 1 : 0,
+                transition: noMotion ? 'none' : 'opacity 0.8s ease 0.65s',
+              }}
             />
           )}
 
@@ -128,7 +151,7 @@ function DemandChart({ chart }) {
             strokeWidth="1"
           />
 
-          {barMetrics.map((bar) => (
+          {barMetrics.map((bar, index) => (
             <g key={bar.year}>
               <rect
                 x={bar.x}
@@ -138,6 +161,14 @@ function DemandChart({ chart }) {
                 rx="3"
                 ry="3"
                 fill={bar.highlight ? `url(#${uid}-bar-orange)` : `url(#${uid}-bar-gray)`}
+                style={{
+                  transformBox: 'fill-box',
+                  transformOrigin: 'bottom',
+                  transform: inView ? 'scaleY(1)' : 'scaleY(0)',
+                  transition: noMotion
+                    ? 'none'
+                    : `transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) ${index * 140}ms`,
+                }}
               />
               <text
                 x={bar.cx}
@@ -163,7 +194,7 @@ export default function CompanyValues({ content }) {
       <StatsBar stats={content.stats} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-12 lg:py-14">
-        <h2 className="text-white font-semibold text-[18px] sm:text-[20px] lg:text-[26px] leading-[1.2] tracking-normal mb-8 sm:mb-10 lg:mb-12">
+        <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
           {content.heading}
         </h2>
 
@@ -172,12 +203,12 @@ export default function CompanyValues({ content }) {
             {content.points.map((point, index) => (
               <div key={point.title}>
                 <div className="flex items-start gap-3 sm:gap-4 py-6 sm:py-7">
-                  <GlowBullet />
+                  <GlowBullet index={index} />
                   <div className="flex flex-col gap-1.5 pt-1.5">
-                    <h3 className="text-white font-bold text-base sm:text-lg leading-snug">
+                    <h3 className="text-white font-bold text-[13.5px] sm:text-lg leading-snug">
                       {point.title}
                     </h3>
-                    <p className="text-[#8b95a5] text-[13px] sm:text-sm leading-relaxed">
+                    <p className="text-[#8b95a5] text-[13px] sm:text-[16px] leading-relaxed">
                       {point.description}
                     </p>
                   </div>
@@ -191,8 +222,6 @@ export default function CompanyValues({ content }) {
 
           <DemandChart chart={content.chart} />
         </div>
-
-        <CurriculumDownloadButtons className="mt-10 sm:mt-12 lg:mt-14" />
       </div>
     </section>
   )

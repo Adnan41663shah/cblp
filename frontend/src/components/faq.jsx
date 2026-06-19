@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FAQ_ITEMS } from '../data/faq'
+import { getFaqItems } from '../data/faq'
 
 function FaqItem({ item, isOpen, onToggle }) {
   return (
@@ -36,8 +36,9 @@ function FaqItem({ item, isOpen, onToggle }) {
   )
 }
 
-export default function Faq() {
+export default function Faq({ courseKey = 'data-science' }) {
   const [openId, setOpenId] = useState(null)
+  const faqItems = getFaqItems(courseKey)
 
   const handleToggle = (id) => {
     setOpenId((current) => (current === id ? null : id))
@@ -45,12 +46,12 @@ export default function Faq() {
 
   return (
     <section id="faqs" className="relative scroll-mt-[var(--nav-scroll-offset)] bg-black pt-10 pb-12 sm:pt-12 sm:pb-16 lg:pt-14 lg:pb-20">
-      <h2 className="text-white font-semibold text-[20px] sm:text-[24px] leading-[1.2] tracking-normal mb-10  ">
+      <h2 className="text-white font-semibold text-[22px] sm:text-[28px] lg:text-[32px] leading-[1.2] tracking-tight mb-6 sm:mb-8 lg:mb-10">
         Frequently Asked Questions
       </h2>
 
       <div>
-        {FAQ_ITEMS.map((item) => (
+        {faqItems.map((item) => (
           <FaqItem
             key={item.id}
             item={item}

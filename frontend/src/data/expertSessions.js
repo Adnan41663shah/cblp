@@ -3,6 +3,7 @@ import anirbanSen from '../assets/experts/anirban-sen.webp'
 import anuragDangi from '../assets/experts/anurag-dangi.webp'
 import rudraSharma from '../assets/experts/rudra-sharma.webp'
 import vanshikaSingh from '../assets/experts/vanshika-singh.webp'
+import bootcampImage from '../assets/bootcamp.webp'
 
 export const EXPERT_SESSIONS = [
   {
@@ -40,11 +41,10 @@ export const EXPERT_SESSIONS = [
 export const bootcampExpertsContent = {
   title: 'A Bootcamp crafted with care, taught by experts',
   cardHeading: 'In house team of experts to guide you',
-  image:
-    'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=960&h=720&q=80',
+  image: bootcampImage,
   imageAlt: 'In-house expert team collaborating in office',
   highlights: [
-    'One-on-one guidance to understand your story and prepare you to become industry-ready.',
+    'One-on-one guidance to understand your story and prepare you to become industry ready.',
     'Free communication and soft-skills training to help you crack interviews with confidence.',
     "Wellness programs including yoga and meditation to promote mental balance and productivity.",
   ],

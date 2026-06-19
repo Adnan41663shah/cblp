@@ -5,13 +5,13 @@ import CurriculumDownloadModal from './CurriculumDownloadModal'
 const curriculumButtons = [
   {
     id: 'data-science',
-    label: 'Data Science',
+    label: 'Expert in Data Science and Analytics with Al ',
     badge: 'Download Curriculum',
     theme: 'blue',
   },
   {
     id: 'devops',
-    label: 'Cloud DevOps',
+    label: 'Cloud DevOps Engineering Course With AI',
     badge: 'Download Curriculum',
     showBolt: true,
     theme: 'orange',
@@ -36,28 +36,28 @@ function CurriculumButton({ button, onOpen }) {
     <button
       type="button"
       onClick={() => onOpen(button.id)}
-      className={`relative overflow-hidden w-full max-w-[220px] sm:w-[220px] rounded-xl border-2 py-9 sm:py-8 px-5 transition-colors duration-200 cursor-pointer ${theme.body}`}
+      className={`relative overflow-hidden flex-1 w-full sm:w-auto sm:flex-none rounded-xl border-2 py-6 px-5 sm:py-7 sm:px-10 transition-colors duration-200 cursor-pointer ${theme.body}`}
     >
       <span
-        className={`absolute top-0 right-0 inline-flex items-center gap-1 pl-3.5 pr-2.5 py-1.5 text-white text-[9px] sm:text-[10px] font-semibold whitespace-nowrap rounded-bl-[14px] ${theme.badge}`}
+        className={`absolute top-0 right-0 inline-flex items-center gap-0.5 sm:gap-1 pl-2.5 pr-2 py-1 text-white text-[8px] sm:text-[10px] font-semibold whitespace-nowrap rounded-bl-[10px] sm:pl-3.5 sm:pr-2.5 sm:py-1.5 sm:rounded-bl-[14px] ${theme.badge}`}
       >
         {button.showBolt && (
           <HiLightningBolt className="w-2.5 h-2.5 sm:w-3 sm:h-3 flex-shrink-0 text-[#fdba74]" />
         )}
         {button.badge}
       </span>
-      <span className="relative z-10 block text-white font-bold text-sm sm:text-[15px] text-center leading-tight">
+      <span className="relative z-10 block text-white font-semibold text-[11px] sm:text-[13px] md:text-[14px] text-center whitespace-normal sm:whitespace-nowrap leading-snug sm:leading-loose mt-1.5 sm:mt-2">
         {button.label}
       </span>
     </button>
   )
 }
 
-export default function CurriculumDownloadButtons({ className = '' }) {
+export default function CurriculumDownloadButtons({ className = '', courseKey = 'data-science' }) {
   const [activeCourse, setActiveCourse] = useState(null)
 
-  const handleOpen = (courseKey) => {
-    setActiveCourse(courseKey)
+  const handleOpen = (courseId) => {
+    setActiveCourse(courseId)
   }
 
   const handleClose = () => {
@@ -66,8 +66,8 @@ export default function CurriculumDownloadButtons({ className = '' }) {
 
   return (
     <>
-      <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 ${className}`}>
-        {curriculumButtons.map((button) => (
+      <div className={`flex flex-row items-stretch justify-center gap-3 sm:gap-5 ${className}`}>
+        {curriculumButtons.filter(button => button.id === courseKey).map((button) => (
           <CurriculumButton key={button.id} button={button} onOpen={handleOpen} />
         ))}
       </div>
